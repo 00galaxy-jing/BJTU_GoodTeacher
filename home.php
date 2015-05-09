@@ -1,3 +1,18 @@
+<?php require_once('config/db_config.php'); ?>
+<?php require_once('session/session_unset.php'); ?>
+<?php require_once('session/session.php'); ?>
+<?php require_once('function/my_interest_function.php'); ?>
+
+<!--变量初始化部分-->
+<?php 
+	$now_uid=1;
+?>
+
+<!--数据库操作部分 -->
+<?php 
+	$stu_interest = get_my_interest($now_uid);
+?>
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
@@ -130,44 +145,48 @@
 <div id="main">
 	<div class="bbsdata_list">
 		<!--列表开始-->
-		<table width="100%">
-			<tr>
-				<td style="width:80px;height:100%" > 
-					<img src="image/jobs/my.jpg" width="80px"  >
-				</td>
-				<td>
-				<!--<img src="images/shouwei/jobs/my.jpg" width="70%">-->
-					<dl>
-						<dt>
-							<!--<font class="rpy two_num fl">19</font>-->
-							<p style="font-size:150%;font-weight:bold;color:#3C3B3B">[学术组]</p>
-							<p class="clear"></p>
-						</dt>
-						<dd class="bbsdata_info">
-							<p style="font-size:120%">软件学院教学</p>
-							<span >老师：21</span>&nbsp&nbsp				
-							<span >感兴趣：100</span>			
-						</dd>
-					</dl>
-				</td>
-			</tr>
+		<?php 
+			while($row_interest = mysql_fetch_assoc($stu_interest)){ ?>
+			
+				<table width="100%">
+					<tr>
+						<td style="width:80px;height:100%" > 
+							<img src="<?php echo $row_interest['group_pic'] ?>" width="80px"  >
+						</td>
+						<td>
+						<!--<img src="images/shouwei/jobs/my.jpg" width="70%">-->
+							<dl>
+								<dt>
+									<!--<font class="rpy two_num fl">19</font>-->
+									<p style="font-size:150%;font-weight:bold;color:#3C3B3B">[<?php echo $row_interest['group_name'] ?>]</p>
+									<p class="clear"></p>
+								</dt>
+								<dd class="bbsdata_info">
+									<p style="font-size:120%"><?php echo $row_interest['group_description'] ?></p>
+									<span >老师：<?php echo $row_interest['group_tnum'] ?></span>&nbsp&nbsp				
+									<span >感兴趣：<?php echo $row_interest['group_snum'] ?></span>			
+								</dd>
+							</dl>
+						</td>
+					</tr>
 
-		</table>
-		<div style="width: 100%;
-					padding: 1px 0px;
-						border-bottom: 1px solid #dcdcdc;">
-		</div>
+				</table>
+				<div style="width: 100%;
+							padding: 1px 0px;
+								border-bottom: 1px solid #dcdcdc;">
+				</div>
+		<?php }?>
 
-		<table width="100%">
+		<!--<table width="100%">
 			<tr>
 				<td style="width:80px;height:100%;" > 
 					<img src="image/jobs/my.jpg" width="80px"  >
 				</td>
 				<td >
-				<!--<img src="images/shouwei/jobs/my.jpg" width="70%">-->
+				<img src="images/shouwei/jobs/my.jpg" width="70%">
 					<dl>
 						<dt>
-							<!--<font class="rpy two_num fl">19</font>-->
+							<font class="rpy two_num fl">19</font>
 							<p style="font-size:150%;font-weight:bold;color:#3C3B3B">[后勤组]</p>
 							<p class="clear"></p>
 						</dt>
@@ -184,7 +203,7 @@
 		<div style="width: 100%;
 					padding: 1px 0px;
 						border-bottom: 1px solid #dcdcdc;">
-		</div>
+		</div>-->
 
 				
 				<!--列表结束-->
