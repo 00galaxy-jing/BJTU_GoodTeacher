@@ -35,6 +35,7 @@
 
 <body>	
 	<div style="height:40px"data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
+	      <button type="button" onClick="javascript:history.go(-1);">返回</button>
 	      <h3>交大好老师</h3>
     </div>
 
@@ -82,9 +83,7 @@
 								<dd>
 									<p style="text-align:left"><span>发起时间：</span>
 									<span><?php echo $row_pro['problem_time']; ?></span></p>
-									<?php if($row_pro['problem_point_status']==1) {?>
 										<p style="text-align:left">--------------教师回复-------------</p>
-									<?php }?>
 								</dd>
 							</dl>			
 						</td>			
@@ -110,6 +109,10 @@
 								</dd>
 							</td>	
 						</tr>
+					<?php }else {?>
+							<td>
+								<p style="  text-align: left;margin-left:24%">暂无老师回复</p>
+							</td>
 					<?php }?>
 				</table>	
 			</div>
@@ -146,7 +149,7 @@
             <a href="question.php" data-icon="edit" data-theme="a">提问</a>
           </li>
           <li>
-            <a href="me.html" data-icon="user" data-theme="a">我</a>
+            <a href="me.php" data-icon="user" data-theme="a">我</a>
           </li>
           <li>
             <a data-icon="bars" data-theme="a">更多</a>

@@ -62,16 +62,16 @@
       <div data-role="navbar">
         <ul>
           <li>
-            <a href="search.html" data-icon="home" data-theme="a">动态</a>
+            <a href="home.php" data-icon="home" data-theme="a">动态</a>
           </li>
           <li>
-            <a data-icon="star" data-theme="a">发现</a>
+            <a href="hot_recom.php" data-icon="star" data-theme="a">发现</a>
           </li>
           <li>
-            <a data-icon="edit" data-theme="a">提问</a>
+            <a href="question.php" data-icon="edit" data-theme="a">提问</a>
           </li>
           <li>
-            <a data-icon="user" data-theme="a">我</a>
+            <a href="me.php" data-icon="user" data-theme="a" class="ui-btn-active">我</a>
           </li>
           <li>
             <a data-icon="bars" data-theme="a">更多</a>

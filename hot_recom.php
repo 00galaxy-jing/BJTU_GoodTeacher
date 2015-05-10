@@ -150,7 +150,7 @@
 				<!--<img src="images/shouwei/jobs/my.jpg" width="70%">-->
 					<dl style="padding:3px">
 						<dt>
-							<p>来自	<a href="" style="font-size:14px;color:rgb(33, 177, 219)"><?php echo $row_hot['group_name']; ?></a></p>
+							<p>来自	<a href="group_view.php?gid=<?php echo $row_hot['group_id']; ?>" style="font-size:14px;color:rgb(33, 177, 219)"><?php echo $row_hot['group_name']; ?></a></p>
 							<p style="font-size:15px;color:rgb(56, 55, 55);font-weight:bold"><?php echo $row_hot['problem_title']; ?></p>
 						</dt>
 						<dd>
@@ -220,7 +220,7 @@
             <a href="question.php" data-icon="edit" data-theme="a">提问</a>
           </li>
           <li>
-            <a href="me.html" data-icon="user" data-theme="a">我</a>
+            <a href="me.php" data-icon="user" data-theme="a">我</a>
           </li>
           <li>
             <a data-icon="bars" data-theme="a">更多</a>

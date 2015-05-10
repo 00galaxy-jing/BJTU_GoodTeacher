@@ -70,7 +70,7 @@
         </div>
       </div>
       <div class="ui-field-contain" id="cancel">
-          <a href="search.php" rel="external" class="ui-btn">取消</a>
+          <a href="home.php" rel="external" class="ui-btn">取消</a>
       </div>
     </div>
   </div>

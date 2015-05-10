@@ -162,9 +162,9 @@
 									<p class="clear"></p>
 								</dt>
 								<dd class="bbsdata_info">
-									<p style="font-size:120%"><?php echo $row_interest['group_description'] ?></p>
-									<span >老师：<?php echo $row_interest['group_tnum'] ?></span>&nbsp&nbsp				
-									<span >感兴趣：<?php echo $row_interest['group_snum'] ?></span>			
+									<p style="font-size:120%;  font-weight: normal;"><?php echo $row_interest['group_description'] ?></p>
+									<span style="font-weight: normal;">老师：<?php echo $row_interest['group_tnum'] ?></span>&nbsp&nbsp				
+									<span style="font-weight: normal;">感兴趣：<?php echo $row_interest['group_snum'] ?></span>			
 								</dd>
 							</dl>
 						</td>
@@ -241,7 +241,7 @@
             <a href="question.php" data-icon="edit" data-theme="a">提问</a>
           </li>
           <li>
-            <a href="me.html" data-icon="user" data-theme="a">我</a>
+            <a href="me.php" data-icon="user" data-theme="a">我</a>
           </li>
           <li>
             <a data-icon="bars" data-theme="a">更多</a>
