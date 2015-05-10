@@ -1,3 +1,18 @@
+<?php require_once('config/db_config.php'); ?>
+<?php require_once('session/session_unset.php'); ?>
+<?php require_once('session/session.php'); ?>
+<?php require_once('function/hot_recom_function.php'); ?>
+
+<!--变量初始化部分-->
+<?php 
+	$now_uid=1;
+?>
+
+<!--数据库操作部分 -->
+<?php 
+	$all_hot_recom = get_all_hot_recom();
+?>
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
@@ -128,20 +143,21 @@
 	<div id="main">
 	<div class="bbsdata_list">
 		<!--列表开始-->
-				<table width="100%">
+		<?php while($row_hot = mysql_fetch_assoc($all_hot_recom)) {?>
+		<table width="100%">
 			<tr>
 				<td style="padding-bottom:0px"  colspan="2" >
 				<!--<img src="images/shouwei/jobs/my.jpg" width="70%">-->
 					<dl style="padding:3px">
 						<dt>
-							<p>来自	<a href="home.html" style="font-size:14px;color:rgb(33, 177, 219)">学术组</a></p>
-							<p style="font-size:15px;color:rgb(56, 55, 55);font-weight:bold">数据库哪本教材比较好</p>
+							<p>来自	<a href="" style="font-size:14px;color:rgb(33, 177, 219)"><?php echo $row_hot['group_name']; ?></a></p>
+							<p style="font-size:15px;color:rgb(56, 55, 55);font-weight:bold"><?php echo $row_hot['problem_title']; ?></p>
 						</dt>
 						<dd>
 							<p style="text-align:left"><span>问题发起人: </span>
-							<span style="color:rgb(33, 177, 219)">galaxy_</span></p>
+							<span style="color:rgb(33, 177, 219)"><?php echo $row_hot['stu_name']; ?></span></p>
 							<p style="text-align:left"><span>发起时间：</span>
-							<span>2015-05-03 13:00</span></p>
+							<span><?php echo $row_hot['problem_time']; ?></span></p>
 							<p style="text-align:left">--------------教师回复-------------</p>
 						</dd>
 					</dl>			
@@ -155,12 +171,12 @@
 					<img src="images/shouwei/jobs/my.jpg">
 				</td>-->
 				<td style="width:50px;height:100%;padding-top:0px;padding-bottom:3px;vertical-align:top;"  > 
-					<img src="image/jobs/my.jpg" width="50px" >
+					<img src="<?php echo $row_hot['tea_pic']; ?>" width="50px" >
 				</td>
 				<td  style="height:100%;padding-top:0px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
 					<dd>
-						<p style="color:rgb(33, 177, 219)">王方石老师</p>
-							<p>《数据库系统——设计、实现与管理》</p>		
+						<p style="color:rgb(33, 177, 219)"><?php echo $row_hot['tea_name']; ?></p>
+							<p><?php echo $row_hot['answer_content']; ?></p>		
 					</dd>
 				</td>	
 			</tr>
@@ -172,47 +188,9 @@
 						border-bottom: 1px solid #dcdcdc;">
 		</div>
 
-		<table width="100%">
-			<tr>
-				<td style="padding-bottom:0px"  colspan="2" >
-				<!--<img src="images/shouwei/jobs/my.jpg" width="70%">-->
-					<dl style="padding:3px">
-						<dt>
-							<p>来自	<a href="home.html" style="font-size:14px;color:rgb(33, 177, 219)">后勤组</a></p>
-							<p style="font-size:15px;color:rgb(56, 55, 55);font-weight:bold">逸夫教学楼在哪里</p>
-						</dt>
-						<dd>
-							<p style="text-align:left"><span>问题发起人: </span>
-							<span style="color:rgb(33, 177, 219)">MluM</span></p>
-							<p style="text-align:left"><span>发起时间：</span>
-							<span>2015-05-02 14:00</span></p>
-							<p style="text-align:left">--------------教师回复-------------</p>
-						</dd>
-					</dl>			
-				</td>			
-			</tr>				
-							<!--<font class="rpy two_num fl">19</font>-->
-							<!--<p style="font-size:150%;font-weight:bold;color:#3C3B3B">[学术组]</p>
-							<p class="clear"></p>-->
-			<tr>
-				<!--<td style="padding-top:0px;padding-bottom:3px;width:30%" >
-					<img src="images/shouwei/jobs/my.jpg">
-				</td>-->
-				<td style="width:50px;height:100%;padding-top:0px;padding-bottom:3px;vertical-align:top" > 
-					<img src="image/jobs/my.jpg" width="50px"  >
-				</td>
-				<td  style="height:100%;padding-top:0px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
-					<dd>
-						<p style="color:rgb(33, 177, 219)">后勤部老师1</p>
-							<p>主校区东边，芳花园东侧</p>		
-					</dd>
-				</td>	
-			</tr>
-		</table>
-		<div style="width: 100%;
-					padding: 1px 0px;
-						border-bottom: 1px solid #dcdcdc;">
-		</div>
+		<?php } ?>
+
+		
 				<!--列表结束-->
 	    <div class="clear"></div>
 </div>

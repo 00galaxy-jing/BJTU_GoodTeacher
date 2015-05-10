@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50616
 File Encoding         : 65001
 
-Date: 2015-05-09 12:23:50
+Date: 2015-05-10 13:14:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -108,6 +108,7 @@ CREATE TABLE `gt_problem` (
   `problem_from` int(11) DEFAULT NULL,
   `problem_to` int(11) DEFAULT NULL,
   `problem_time` datetime DEFAULT NULL,
+  `problem_answer` int(11) DEFAULT '0',
   `problem_point_status` int(2) DEFAULT '0',
   PRIMARY KEY (`problem_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
@@ -115,9 +116,9 @@ CREATE TABLE `gt_problem` (
 -- ----------------------------
 -- Records of gt_problem
 -- ----------------------------
-INSERT INTO `gt_problem` VALUES ('1', '求数据库书籍推荐', '请问学数据库用哪本书比较好', '1', null, '1', '1', '4', '2015-05-04 17:45:50', '1');
-INSERT INTO `gt_problem` VALUES ('2', '逸夫教学楼在哪里', '请问逸夫教学楼在哪里', '2', null, '1', '1', '1', '2015-05-04 17:46:46', '0');
-INSERT INTO `gt_problem` VALUES ('3', '请问该怎么减压', '最近作业好多，压力太大', '3', null, '0', '1', '1', '2015-05-04 17:48:21', '0');
+INSERT INTO `gt_problem` VALUES ('1', '求数据库书籍推荐', '请问学数据库用哪本书比较好', '1', null, '1', '1', '4', '2015-05-04 17:45:50', '1', '1');
+INSERT INTO `gt_problem` VALUES ('2', '逸夫教学楼在哪里', '请问逸夫教学楼在哪里', '2', null, '1', '1', '1', '2015-05-04 17:46:46', '0', '0');
+INSERT INTO `gt_problem` VALUES ('3', '请问该怎么减压', '最近作业好多，压力太大', '3', null, '0', '1', '1', '2015-05-04 17:48:21', '0', '0');
 
 -- ----------------------------
 -- Table structure for gt_student
@@ -197,10 +198,10 @@ CREATE TABLE `gt_teacher` (
 -- ----------------------------
 -- Records of gt_teacher
 -- ----------------------------
-INSERT INTO `gt_teacher` VALUES ('1', '李XX', '123456', '软件学院', null, '18811439812', 'li@bjtu.edu.cn', '0', '2015-05-04');
-INSERT INTO `gt_teacher` VALUES ('2', '王XX', '123456', '信息中心', null, '130xxxxxxxx', 'wang@bjtu.edu.cn', '0', '2015-05-04');
-INSERT INTO `gt_teacher` VALUES ('3', '曹X', '123456', '教务处', null, '131xxxxxxxx', 'cao@bjtu.edu.cm', '0', '2015-05-04');
-INSERT INTO `gt_teacher` VALUES ('4', '吴XX', '123456', '软件学院', null, '188xxxxxxxx', 'wu@bjtu.edu.cn', '0', '2015-05-04');
+INSERT INTO `gt_teacher` VALUES ('1', '李XX', '123456', '软件学院', 'img/teacher/li.jpg', '18811439812', 'li@bjtu.edu.cn', '0', '2015-05-04');
+INSERT INTO `gt_teacher` VALUES ('2', '王XX', '123456', '信息中心', 'img/teacher/wang.jpg', '130xxxxxxxx', 'wang@bjtu.edu.cn', '0', '2015-05-04');
+INSERT INTO `gt_teacher` VALUES ('3', '曹X', '123456', '教务处', 'img/teacher/cao.jpg', '131xxxxxxxx', 'cao@bjtu.edu.cm', '0', '2015-05-04');
+INSERT INTO `gt_teacher` VALUES ('4', '吴XX', '123456', '软件学院', 'img/teacher/wu.jpg', '188xxxxxxxx', 'wu@bjtu.edu.cn', '0', '2015-05-04');
 
 -- ----------------------------
 -- Table structure for gt_teacher_group

@@ -1,3 +1,18 @@
+<?php require_once('config/db_config.php'); ?>
+<?php require_once('session/session_unset.php'); ?>
+<?php require_once('session/session.php'); ?>
+<?php require_once('function/my_follow_function.php'); ?>
+
+<!--变量初始化部分-->
+<?php 
+	$now_uid=1;
+?>
+
+<!--数据库操作部分 -->
+<?php 
+	$stu_follow = get_my_follow($now_uid);
+?>
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
@@ -130,64 +145,40 @@
 <div id="main">
 	<div class="bbsdata_list">
 		<!--列表开始-->
-		<table width="100%">
-			<tr>
-				<!--<td style="padding-top:0px;padding-bottom:3px;width:30%" >
-					<img src="images/shouwei/jobs/my.jpg">
-				</td>-->
 
-				<td  style="height:100%;padding-top:5px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
-					<dd>
-						<span style="color:rgb(33, 177, 219)">王方石老师</span>&nbsp
-						<span style="font-weight:bold;color:rgb(56, 55, 55)">回答了问题</span>
-						<p style="font-size:15px;color:rgb(56, 55, 55);font-weight:bold">数据库哪本教材比较好</p>
-						<div style="width: 100%;
-									padding: 0px 0px;
-									border-bottom: 1px solid #dcdcdc;">
-						</div>
-						<p>回复：《数据库系统——设计、实现与管理》</p>		
-					</dd>
-				</td>
-				<td style="width:50px;height:100%;padding-top:8px;padding-bottom:3px;vertical-align:top;"  > 
-					<img src="image/jobs/my.jpg" width="50px" >
-				</td>	
-			</tr>
-		</table>	
+		<?php while($row_follow=mysql_fetch_assoc($stu_follow)){ ?>
 
-		
-		<div style="width: 100%;
-					padding: 1px 0px;
-						border-bottom: 2px solid #9D9D9D;">
-		</div>
+			<table width="100%">
+				<tr>
+					<!--<td style="padding-top:0px;padding-bottom:3px;width:30%" >
+						<img src="images/shouwei/jobs/my.jpg">
+					</td>-->
 
-		<table width="100%">
-			<tr>
-				<!--<td style="padding-top:0px;padding-bottom:3px;width:30%" >
-					<img src="images/shouwei/jobs/my.jpg">
-				</td>-->
+					<td  style="height:100%;padding-top:5px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
+						<dd>
+							<span style="color:rgb(33, 177, 219)"><?php echo $row_follow['tea_name']; ?></span>&nbsp
+							<span style="font-weight:bold;color:rgb(56, 55, 55)">回答了问题</span>
+							<p style="font-size:15px;color:rgb(56, 55, 55);font-weight:bold"><?php echo $row_follow['problem_title']; ?></p>
+							<div style="width: 100%;
+										padding: 0px 0px;
+										border-bottom: 1px solid #dcdcdc;">
+							</div>
+							<p>回复： <?php echo $row_follow['answer_content']; ?></p>		
+						</dd>
+					</td>
+					<td style="width:50px;height:100%;padding-top:8px;padding-bottom:3px;vertical-align:top;"  > 
+						<img src="<?php echo $row_follow['tea_pic']; ?>" width="50px" >
+					</td>	
+				</tr>
+			</table>	
 
-				<td  style="height:100%;padding-top:5px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
-					<dd>
-						<span style="color:rgb(33, 177, 219)">后勤部老师1</span>&nbsp
-						<span style="font-weight:bold;color:rgb(56, 55, 55)">回答了问题</span>
-						<p style="font-size:15px;color:rgb(56, 55, 55);font-weight:bold">逸夫教学楼在哪里</p>
-						<div style="width: 100%;
-									padding: 0px 0px;
-									border-bottom: 1px solid #dcdcdc;">
-						</div>
-						<p>回复：主区东边，芳花园东侧</p>		
-					</dd>
-				</td>
-				<td style="width:50px;height:100%;padding-top:8px;padding-bottom:3px;vertical-align:top;"  > 
-					<img src="image/jobs/my.jpg" width="50px" >
-				</td>	
-			</tr>
-		</table>
-		<div style="width: 100%;
-					padding: 1px 0px;
-						border-bottom: 2px solid #9D9D9D;">
-		</div>
+			
+			<div style="width: 100%;
+						padding: 1px 0px;
+							border-bottom: 2px solid #9D9D9D;">
+			</div>
 
+		<?php } ?>
 				
 				<!--列表结束-->
 	    <div class="clear"></div>
@@ -233,4 +224,3 @@
     </div>
 </body>
 </html> 
-<!--<script type="text/javascript">/*20:3 创建于 2014-12-26*/var cpro_id = "u1879755";</script><script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>	-->
