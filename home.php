@@ -143,12 +143,12 @@
 
 <link rel="stylesheet" href="css/bbslist.css?v=2013013007" type="text/css" />
 <div id="main">
-	<div class="bbsdata_list">
+	<div class="bbsdata_list" >
 		<!--列表开始-->
 		<?php 
 			while($row_interest = mysql_fetch_assoc($stu_interest)){ ?>
-			
-				<table width="100%">
+			    <a href="group_view.php?gid=<?php echo $row_interest['group_id']; ?>">
+				<table width="100%" >
 					<tr>
 						<td style="width:80px;height:100%" > 
 							<img src="<?php echo $row_interest['group_pic'] ?>" width="80px"  >
@@ -171,6 +171,7 @@
 					</tr>
 
 				</table>
+			</a>
 				<div style="width: 100%;
 							padding: 1px 0px;
 								border-bottom: 1px solid #dcdcdc;">
