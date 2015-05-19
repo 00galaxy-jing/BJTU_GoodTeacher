@@ -5,7 +5,8 @@
 
 <!--变量初始化部分-->
 <?php 
-	$now_uid=1;
+	$now_sid=-1;
+	$now_tid=1;
 ?>
 
 <!--数据库操作部分 -->
@@ -230,7 +231,11 @@
       <div data-role="navbar" data-position="fixed">
         <ul>
           <li>
-            <a href="home.php" data-icon="home"  data-theme="a">动态</a>
+          	<?php if($now_sid!=-1) {?>
+            	<a href="home.php" data-icon="home"  data-theme="a">动态</a>
+            <?php } else {?>
+            	<a href="teacher_home.php" data-icon="home"  data-theme="a">动态</a>
+            <?php }?>
           </li>
           <li>
             <a href="hot_recom.php" rel="external" class="ui-btn-active" data-icon="star" data-theme="a">发现</a>

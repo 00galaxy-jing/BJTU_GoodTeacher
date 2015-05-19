@@ -1,17 +1,16 @@
 <?php require_once('config/db_config.php'); ?>
 <?php require_once('session/session_unset.php'); ?>
 <?php require_once('session/session.php'); ?>
-<?php require_once('function/teacher_group_function.php'); ?>
+<?php require_once('function/teacher_need_function.php'); ?>
 
 <!--变量初始化部分-->
 <?php 
-	$now_sid=-1;
 	$now_tid=1;
 ?>
 
 <!--数据库操作部分 -->
 <?php 
-	$tea_group = get_my_group($now_tid);
+	$need_meRS = get_need_me($now_tid);
 ?>
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -126,7 +125,8 @@
 
     <div class="nav" id="top">
 
-	<a class="black bold c96 font14 fl nav_list " href="teacher_home.php" title="我的分组" style="color:black;width:100%;">我的分组</a>
+	<a class="black bold c96 font14 fl nav_list " href="teacher_need_me.php" title="未回答" style="color:black;">未回答</a>
+	<a class=" c96 font14 fl nav_list b25" href="home_follow.php" style="color:black;font-weight:500" title="已回答">已回答</a>
 
 	<p class="clear"></p>
 
@@ -136,33 +136,24 @@
 <div id="main">
 	<div class="bbsdata_list" >
 		<!--列表开始-->
-		<?php 
-			while($row_group = mysql_fetch_assoc($tea_group)){ ?>
-			    <a href="group_view.php?gid=<?php echo $row_group['group_id']; ?>">
-				<table width="100%" >
-					<tr>
-						<td style="width:80px;height:100%" > 
-							<img src="<?php echo $row_group['group_pic'] ?>" width="80px"  >
-						</td>
-						<td>
-						<!--<img src="images/shouwei/jobs/my.jpg" width="70%">-->
-							<dl>
-								<dt>
-									<!--<font class="rpy two_num fl">19</font>-->
-									<p style="font-size:150%;font-weight:bold;color:#3C3B3B">[<?php echo $row_group['group_name'] ?>]</p>
-									<p class="clear"></p>
-								</dt>
-								<dd class="bbsdata_info">
-									<p style="font-size:120%;  font-weight: normal;"><?php echo $row_group['group_description'] ?></p>
-									<span style="font-weight: normal;">老师：<?php echo $row_group['group_tnum'] ?></span>&nbsp&nbsp				
-									<span style="font-weight: normal;">感兴趣：<?php echo $row_group['group_snum'] ?></span>			
-								</dd>
-							</dl>
-						</td>
-					</tr>
-
-				</table>
-			</a>
+		<?php  while($row_need_problem = mysql_fetch_assoc($need_meRS)){ ?>
+			    <div >
+					<table width="100%" >
+						<tr>
+									<td style="width:20%;padding-top:5px;padding-bottom:0px;vertical-align:top;"  > 
+										<img src="<?php echo $row_need_problem['stu_pic']; ?>" width="100%" >
+									</td>
+									<td  style="height:100%;padding-top:0px;padding-bottom:3px;vertical-align:top;text-align:left;">
+										<dd>
+											<a href="question_detail.php?qid=<?php echo $row_need_problem['problem_id']; ?>"><p style="font-size:15px;color:rgb(55,55,55);font-weight:bold;"><?php echo $row_need_problem['problem_title']; ?></p></a>
+											<p>来自： <span style="color:rgb(33, 177, 219)"><?php echo $row_need_problem['stu_name']; ?></span></p>
+											<p>分组： <span style="color:rgb(33, 177, 219)"><?php echo $row_need_problem['group_name']; ?></span></p>		
+										</dd>
+									</td>
+									
+								</tr>
+					</table>
+				</div>
 				<div style="width: 100%;
 							padding: 1px 0px;
 								border-bottom: 1px solid #dcdcdc;">

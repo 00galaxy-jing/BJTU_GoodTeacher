@@ -30,6 +30,25 @@
 	<script language="javascript">
 		if (top.location != location) top.location.href = location.href;
 	</script>
+	<style type="text/css">
+		#reply_button{
+			padding: 5px;
+			margin: 5px 0px 8px;
+			width: 100%;
+		}
+		#reply_submit{
+			padding: 5px;
+			margin: 5px 0px 8px;
+			width: 100%;
+		}
+	</style>
+	<script type="text/javascript">
+		function reply_modal()
+		{
+			document.getElementById("reply_button").style.display="none";
+			document.getElementById("reply_context").style.display="";
+		}
+	</script>
 </head>
 
 <body>	
@@ -43,33 +62,37 @@
 	<div id="main" style="padding-top:10px">
 		<div >
 			<div style="border:1px solid rgb(219, 219, 219);padding-top:-5px;">
-			<table width="100%">
-					<tr>
-						<td width="80%" style="padding-bottom:0px;padding-right:0px;text-align:left" valign="top">
-							<p style="font-size:150%;font-weight:bold;color:#3C3B3B">[<?php echo $row_question['problem_title']; ?>]</p>
-									<p class="clear"></p>
-							<p style="font-size:120%"><?php echo $row_question['problem_description']; ?></p>
-						</td>
-						<td style="padding:0px;padding-top:5px;" valign="top">
-							<a href=""><img src="<?php echo $row_question['stu_pic']; ?>" width="100%"  ></a>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<dl style="padding-top:0px">
-								<dd class="bbsdata_info">
-									<div style="width: 100%;padding: 1px 0px;padding-bottom:0px;border-bottom: 1px dashed #B3B3B3;" ></div>
-									<p style="padding-top:5px"><span >兴趣组：<a href="group_view.php?gid=<?php echo $row_question['group_id']; ?> " > <?php echo $row_question['group_name']; ?></a></span></p>				
-									<p><span >问题来自： <a href="" style="color:rgb(33, 177, 219); font-weight:300"> <?php echo $row_question['stu_name']; ?></a></span></p>
-									<p><span >指定教师： <a href="" style="color:rgb(33, 177, 219); font-weight:300"><?php echo $row_question['tea_name']; ?></a></span></p>
-									<p><span >发起时间： <?php echo $row_question['problem_time']; ?></span></p>
-								</dd>
-							</dl>
-						</td>
-					</tr>
-
-			</table>
-		</div>
+				<table width="100%">
+						<tr>
+							<td  style="padding-bottom:0px;padding-right:0px;text-align:left" valign="top">
+								<p style="font-size:150%;font-weight:bold;color:#3C3B3B">[<?php echo $row_question['problem_title']; ?>]</p>
+										<p class="clear"></p>
+								<p style="font-size:120%"><?php echo $row_question['problem_description']; ?></p>
+							</td>
+							<td width="60px" style="padding:0px;padding-right:3px;padding-top:5px;" valign="top">
+								<a href=""><img src="<?php echo $row_question['stu_pic']; ?>" width="100%"  ></a>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<dl style="padding-top:0px">
+									<dd class="bbsdata_info">
+										<div style="width: 100%;padding: 1px 0px;padding-bottom:0px;border-bottom: 1px dashed #B3B3B3;" ></div>
+										<p style="padding-top:5px"><span >兴趣组：<a href="group_view.php?gid=<?php echo $row_question['group_id']; ?> " > <?php echo $row_question['group_name']; ?></a></span></p>				
+										<p><span >问题来自： <a href="" style="color:rgb(33, 177, 219); font-weight:300"> <?php echo $row_question['stu_name']; ?></a></span></p>
+										<p><span >指定教师： <a href="" style="color:rgb(33, 177, 219); font-weight:300"><?php echo $row_question['tea_name']; ?></a></span></p>
+										<p><span >发起时间： <?php echo $row_question['problem_time']; ?></span></p>
+									</dd>
+								</dl>
+							</td>
+						</tr>
+				</table> 
+			</div>
+			<button type="button" id="reply_button" onclick="reply_modal()">回     复</button>
+				<div id="reply_context" style="display:none;">
+					<textarea style="width:100%;"></textarea>
+					<button type="button" id="reply_submit" onclick="reply_submit()">提     交</button>
+				</div>
 
 			<!--列表开始-->
 			<div class="bbsdata_list" style="padding-top:5px;padding-bottom:5px;" >
