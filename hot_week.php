@@ -10,7 +10,7 @@
 
 <!--数据库操作部分 -->
 <?php 
-	$all_hot_recom = get_all_hot_recom();
+	$all_hot_recom = get_week_hot_recom();
 ?>
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -134,8 +134,8 @@
 
 <link rel="stylesheet" href="css/bbslist.css?v=2013013007" type="text/css" />
 <div class="nav_sec">
-	<a class="c96 fl c_green navSec_firList" href="hot_recom.php" title="全部">全部</a>
-	<a class="c96 fl " href="hot_week.php" title="一周" style="color:black;font-weight:500">一周</a>
+	<a class="c96 fl " href="hot_recom.php" title="全部"  style="color:black;font-weight:500">全部</a>
+	<a class="c96 fl c_green navSec_firList" href="hot_week.php" title="一周">一周</a>
 	<!--<a class="c96 fl " href="index.html?act=gan" title="干货">干货</a>-->
 	<p class="clear"></p>
 </div>

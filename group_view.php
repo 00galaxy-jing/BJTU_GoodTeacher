@@ -78,7 +78,9 @@
 						<!--<img src="images/shouwei/jobs/my.jpg" width="70%">-->
 							<dl style="padding:3px">
 								<dt>
-									<p style="font-size:15px;color:rgb(8, 150, 211);font-weight:bold"><?php echo $row_pro['problem_title']; ?></p>
+									<a href="question_detail.php?qid=<?php echo $row_pro['problem_id']; ?>">
+										<p style="font-size:15px;color:rgb(8, 150, 211);font-weight:bold"><?php echo $row_pro['problem_title']; ?></p>
+									</a>
 								</dt>
 								<dd>
 									<p style="text-align:left"><span>发起时间：</span>

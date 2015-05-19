@@ -158,7 +158,9 @@
 						<dd>
 							<span style="color:rgb(33, 177, 219)"><?php echo $row_follow['tea_name']; ?></span>&nbsp
 							<span style="font-weight:bold;color:rgb(56, 55, 55)">回答了问题</span>
-							<p style="font-size:15px;color:rgb(56, 55, 55);font-weight:bold"><?php echo $row_follow['problem_title']; ?></p>
+							<a href="question_detail.php?qid=<?php echo $row_follow['problem_id'] ?>">
+								<p style="font-size:15px;color:rgb(56, 55, 55);font-weight:bold"><?php echo $row_follow['problem_title']; ?></p>
+							</a>
 							<div style="width: 100%;
 										padding: 0px 0px;
 										border-bottom: 1px solid #dcdcdc;">
