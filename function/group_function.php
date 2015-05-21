@@ -35,7 +35,7 @@
     }
 }
 
-//获取全部热门推荐
+//获取兴趣组信息
 function get_group_info($g_id){
 
   global $tankdb;
@@ -64,6 +64,16 @@ function get_answer_info($pro_id){
   $AnswerInfoRS = mysql_query($selAnswerInfo, $tankdb) or die(mysql_error());
   $AnswerInfo = mysql_fetch_assoc($AnswerInfoRS);
   return $AnswerInfo;
+}
+
+//获取问题信息
+function get_all_group(){
+
+  global $tankdb;
+
+  $selAllGroup="SELECT * FROM gt_group";
+  $GroupRS = mysql_query($selAllGroup, $tankdb) or die(mysql_error());
+  return $GroupRS;
 }
 
 ?>

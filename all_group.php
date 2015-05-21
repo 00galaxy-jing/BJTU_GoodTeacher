@@ -1,7 +1,7 @@
 <?php require_once('config/db_config.php'); ?>
 <?php require_once('session/session_unset.php'); ?>
 <?php require_once('session/session.php'); ?>
-<?php require_once('function/my_interest_function.php'); ?>
+<?php require_once('function/group_function.php'); ?>
 
 <!--变量初始化部分-->
 <?php 
@@ -10,7 +10,7 @@
 
 <!--数据库操作部分 -->
 <?php 
-	$stu_interest = get_my_interest($now_uid);
+	$all_groupRS = get_all_group();
 ?>
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -134,9 +134,7 @@
 	<a class=" c96 font14 fl nav_list b25"  href="event.html" title="活动">活动</a>
 
 	<a class=" c96 font14 fl nav_list b25 last"  href="jobs.html" title="招聘">招聘</a>-->
-	<a class="black bold c96 font14 fl nav_list b25" href="home.php" style="color:black;" title="我的兴趣">我的兴趣</a>
-	<a class=" c96 font14 fl nav_list b25" href="home_follow.php" style="color:black;font-weight:500" title="我的关注">我的关注</a>
-
+	<a class="black bold c96 font14 fl nav_list b25" href="home.php" style="color:black;width:100%" title="所有兴趣">所有兴趣组</a>
 	<p class="clear"></p>
 
 </div>
@@ -146,25 +144,25 @@
 	<div class="bbsdata_list" >
 		<!--列表开始-->
 		<?php 
-			while($row_interest = mysql_fetch_assoc($stu_interest)){ ?>
-			    <a href="group_view.php?gid=<?php echo $row_interest['group_id']; ?>">
+			while($row_group = mysql_fetch_assoc($all_groupRS)){ ?>
+			    <a href="group_view.php?gid=<?php echo $row_group['group_id']; ?>">
 				<table width="100%" >
 					<tr>
 						<td style="width:80px;height:100%" > 
-							<img src="<?php echo $row_interest['group_pic'] ?>" width="80px"  >
+							<img src="<?php echo $row_group['group_pic'] ?>" width="80px"  >
 						</td>
 						<td>
 						<!--<img src="images/shouwei/jobs/my.jpg" width="70%">-->
 							<dl>
 								<dt>
 									<!--<font class="rpy two_num fl">19</font>-->
-									<p style="font-size:150%;font-weight:bold;color:#3C3B3B">[<?php echo $row_interest['group_name'] ?>]</p>
+									<p style="font-size:150%;font-weight:bold;color:#3C3B3B">[<?php echo $row_group['group_name'] ?>]</p>
 									<p class="clear"></p>
 								</dt>
 								<dd class="bbsdata_info">
-									<p style="font-size:120%;  font-weight: normal;"><?php echo $row_interest['group_description'] ?></p>
-									<span style="font-weight: normal;">老师：<?php echo $row_interest['group_tnum'] ?></span>&nbsp&nbsp				
-									<span style="font-weight: normal;">感兴趣：<?php echo $row_interest['group_snum'] ?></span>			
+									<p style="font-size:120%;  font-weight: normal;"><?php echo $row_group['group_description'] ?></p>
+									<span style="font-weight: normal;">老师：<?php echo $row_group['group_tnum'] ?></span>&nbsp&nbsp				
+									<span style="font-weight: normal;">感兴趣：<?php echo $row_group['group_snum'] ?></span>			
 								</dd>
 							</dl>
 						</td>
@@ -177,7 +175,6 @@
 								border-bottom: 1px solid #dcdcdc;">
 				</div>
 		<?php }?>
-		<a style="font-size:15px" href="all_group.php">查看所有兴趣组</a>
 		<!--<table width="100%">
 			<tr>
 				<td style="width:80px;height:100%;" > 
