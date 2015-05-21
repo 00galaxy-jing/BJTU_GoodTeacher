@@ -30,7 +30,10 @@
 	<script language="javascript">
 		if (top.location != location) top.location.href = location.href;
 	</script>
-	<style type="text/css">
+</head>
+
+<body>
+<style type="text/css">
 		#reply_button{
 			padding: 5px;
 			margin: 5px 0px 8px;
@@ -60,10 +63,7 @@
 			document.getElementById("reply_button").style.display="";
 			document.getElementById("reply_context").style.display="none";
 		}
-	</script>
-</head>
-
-<body>	
+	</script>	
 	<div style="height:40px"data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
 	      <button type="button" onClick="javascript:history.go(-1);">返回</button>
 	      <h3>交大好老师</h3>

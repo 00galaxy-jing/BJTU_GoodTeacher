@@ -5,7 +5,7 @@
 
 <!--变量初始化部分-->
 <?php 
-	$now_sid=-1;
+	$now_type=1;
 	$now_tid=1;
 ?>
 
