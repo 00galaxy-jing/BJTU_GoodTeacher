@@ -26,155 +26,50 @@
 	</script>
 </head>
 
-<body>	
+<body>
 
-		<div style="height:50px"data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
+<div data-role="page">
+
+	<div style="height:50px"data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
 	      <h3>交大好老师</h3>
-    	</div>
-        <div id="active_br"></div>        
-
-        <style>
-
-        
-
-        #link img{ max-width: 100%;}
-
-        #oTop img{ max-width: 100%;}
-
-        #oTop{width:100%; position:relative;}
-
-        #oLink1{ position:absolute; top:0px; left:0px; width:14%; height:35%;}
-
-        #oLink2{ position:absolute; top:0px; right:0px; width:86%; height:100%;}
-
-        .nav a{width:50%;}
-
-        .nav a.last{
-
-                border-right:none;}
-
-        
-
-        </style>
-
-        <script language="javascript">
-
-	        
-
-		var ua = navigator.userAgent,
-
-		isIphone = /iPhone/.test(ua),
-
-		isIpad = /iPad/.test(ua),
-
-		isSafari = /Version/i.test(ua),
-
-	    version = /OS[7-9](_\d+){2}/i.test(ua),<!--/OS [7-9]_\d[_\d]/i.test(ua)-->
-
-		isAndroid = /Android/i.test(ua) || /Linux/.test(ua);
-
-		isMobile = /AppleWebKit.*Mobile.*/.test(ua); //是否是移动终端
-
-		
-
-
-
-		if(isIphone && !isIpad && !isSafari && version){
-
-				var oLink = document.createElement('a');				
-
-				oLink.id='link';
-
-				oLink.style.width="100%";
-
-				oLink.href='../um0.cn/8MCBM/default.htm';
-
-				oLink.innerHTML = '<img width="640" src="image/WAP-IOS.jpg">';
-
-				var logo = document.getElementById('top');
-
-				document.body.insertBefore(oLink,logo);
-
-		}
-
-		if(isMobile && isAndroid && !isIpad){
-
-			var oTop = document.createElement('div');
-
-			oTop.id = 'oTop';
-
-			active_br.innerHTML = '<a href="../www.wandoujia.com/apps/com.paidai.jinghua"><img style="width:100%; max-width:100%" src="images/shouwei/WAP-Android-new.jpg"></a><a href="javascript:;" id="oLink1"></a>';
-
-			document.getElementById('oLink1').onclick = function(){
-
-				active_br.style.display = 'none';
-
-			}
-
-		}
-
-	
-
-        </script>
-
-        
-
-
-	<p class="clear"></p>
-
-</div>
-
-<link rel="stylesheet" href="css/bbslist.css?v=2013013007" type="text/css" />
-<div id="main" class="ui-content">
-	<form name="LoginForm" method="post" action="login_verify.php">
-		<div class="ui-field-contain">
-			<label for="username" class="label">用户名：</label>
-            <input type="text" name="username" id="username" placeholder="用户名" data-theme="a" data-prevent-focus-zoom="true" data-mini="true">
-            <label for="password" class="label">密码：</label>
-            <input type="password" name="password" id="password" placeholder="密码" data-theme="a" data-prevent-focus-zoom="true" data-mini="true">
-        </div>
-		<div class="ui-grid-a" style="height:60px">
-            <div class="ui-block-a" style="height:100%">
-				<input type="submit" name="submit" class="ui-btn" value="登录" />
-            </div>
-            <div class="ui-block-b" style="height:100%">
-              	<input type="button" class="ui-btn" value="注册" />
-            </div>
-		</div>
-	</form>
-</div>
-<!--尾部-->
-<div id="foot">
-		<!--<a class="font13  mr12 c64" title="电脑版" href="../www.paidai.com/?id=1_2F">电脑版</a>
-		<a class="font13  mr12 c64" title="触屏版" href="shouji">触屏版</a>
-        		<a href="login.html" title="登录" class="font13 mr12 c64">登&nbsp;录</a>-->
-			<p style="font-size: 9px;text-align:center">Copyright ©2015 BJTU</p>
-	<div class="foot_right fr" style="margin-right: 2%;">
-		<a class="font13 fr c64 to_top" title="回顶部" href="#iheader">顶部</a>
-	</div>
-</div>
- <!-- 底下的固定菜单栏-->
-    <div data-position="fixed" data-role="footer" data-id="footernav">
-      <div data-role="navbar" data-position="fixed">
-        <ul>
-          <li>
-            <a href="home.php" data-icon="home" class="ui-btn-active"  data-theme="a">动态</a>
-          </li>
-          <li>
-            <a href="hot_recom.php" rel="external" data-icon="star" data-theme="a">发现</a>
-          </li>
-          <li>
-            <a href="question.php" data-icon="edit" data-theme="a">提问</a>
-          </li>
-          <li>
-            <a href="me.php" data-icon="user" data-theme="a">我</a>
-          </li>
-          <li>
-            <a data-icon="bars" data-theme="a">更多</a>
-          </li>
-        </ul>
-      </div>
     </div>
+	<div id="active_br"></div>
+
+	<div data-role="content">
+		
+		<form action="loginVerify.php" method="post">
+			
+			<div data-role="fieldcontain">
+			    <label for="username">用户名</label>
+			    <input type="text" name="username" id="username" value=""  />
+			</div>	
+
+			<div data-role="fieldcontain">
+			    <label for="password">密码</label>
+			    <input type="password" name="password" id="password" value=""  />
+			</div>	
+			
+			<div data-role="fieldcontain">
+			    <fieldset data-role="controlgroup">
+					<legend>身份</legend>
+
+					<input type="radio" name="role" id="teacher" value="老师">
+					<label for="teacher">老师</label> 
+
+					<input type="radio" name="role" id="student" value="学生">
+					<label for="student">学生</label> 
+				</fieldset>
+			</div>	
+
+			<div data-role="fieldcontain">
+			    <input type="submit" name="submit"  data-theme="b" value="登录"  />
+			</div>	
+		
+		</form>
+
+	</div>
+
+</div>
+
 </body>
-</html> 
-<!--<script type="text/javascript">/*20:3 创建于 2014-12-26*/var cpro_id = "u1879755";</script><script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>	-->
+</html>
