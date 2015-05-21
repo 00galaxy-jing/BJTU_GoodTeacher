@@ -1,3 +1,25 @@
+<?php require_once('config/db_config.php'); ?>
+<?php require_once('session/session_unset.php'); ?>
+<?php require_once('session/session.php'); ?>
+<?php require_once('function/student_function.php'); ?>
+
+<?php 
+  //初始化
+  $stu_id = -1;
+  if(isset($_GET['sid'])){
+        $stu_id = $_GET['sid'];
+    }
+  $now_uid = 1;
+  $now_type = 1;//学生
+
+  //调用function
+  $user_info = get_student_info($stu_id);
+  $my_interest = get_student_interest($stu_id);
+  $my_follow = get_student_teacher($stu_id);
+  $my_problem = get_my_pro($stu_id);
+  $my_answer = get_my_ans($stu_id);
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -20,22 +42,37 @@
     <div role="main" class="ui-content">
       <!-- 个人信息 -->
         <div class="imgtest" style="text-align:center;">
-          <figure>
+          <div style="  font-family: cursive;font-size: 20px;"><?php echo $user_info['stu_name']; ?></div>
+          <figure style="  margin-top: 5px;margin-bottom:5px">
             <div>
-              <img src="./img/student/krislu.jpg" />
+              <img src="<?php echo $user_info['stu_pic']; ?>" />
             </div>  
           </figure>
         </div>
+        <p><?php echo $user_info['stu_major']; ?> <?php echo $user_info['stu_grade']; ?>级</p>
+        <p><?php echo $user_info['stu_mail']; ?></p>
         <!-- 消息列表 -->
-        <div data-role="content" id="me_quick_access" name = "me_quick_access">
-          <ul data-role="listview" data-inset="true">
-          <li data-role="list-divider">我</li>
-          <li>我关注的老师<span class="ui-li-count">9</span></li>
-          <li>我关注的问题<span class="ui-li-count">4</span></li>
-          <li>我的问题<span class="ui-li-count">13</span></li>
-          <li>我的回答<span class="ui-li-count">8</span></li>
-          </ul>
-        </div>
+        <?php if($now_type==2 && ($stu_id==$now_uid)) {?>
+          <div data-role="content" id="me_quick_access" name = "me_quick_access">
+            <ul data-role="listview" data-inset="true">
+              <li data-role="list-divider">我</li>
+              <li>我关注的分组<span class="ui-li-count"><?php echo $my_interest; ?></span></li>
+              <li>我关注的老师<span class="ui-li-count"><?php echo $my_follow; ?></span></li>
+              <li>我的问题<span class="ui-li-count"><?php echo $my_problem; ?></span></li>
+              <li>我的回答<span class="ui-li-count"><?php echo $my_answer; ?></span></li>
+              <li>我收到的赞<span class="ui-li-count"><?php echo $user_info['stu_get_good']; ?></span></li>
+            </ul>
+          </div>
+        <?php }else {?>
+          <div data-role="content" id="me_quick_access" name = "me_quick_access">
+            <ul data-role="listview" data-inset="true">
+              <li data-role="list-divider">TA</li>
+              <li>TA的问题<span class="ui-li-count"><?php echo $my_problem; ?></span></li>
+              <li>TA的回答<span class="ui-li-count"><?php echo $my_answer; ?></span></li>
+              <li>TA收到的赞<span class="ui-li-count"><?php echo $user_info['stu_get_good']; ?></span></li>
+            </ul>
+          </div>
+        <?php }?>
     </div>
     <div data-position="fixed" data-role="footer">
       <div data-role="navbar">
@@ -61,9 +98,10 @@
   </div>
 
 
-  <!-- 圆形头像style -->
+  <!-- 圆形头像style   margin:10px 5px; -->
   <style type="text/css">
-    .imgtest{margin:10px 5px;
+    .imgtest{
+
     overflow:hidden;
     }
     .list_ul figcaption p{
@@ -72,7 +110,7 @@
     }
     .imgtest figure div{
     display:inline-block;
-    margin:5px auto;
+    margin:0px auto;
     width:100px;
     height:100px;
     border-radius:100px;
@@ -83,6 +121,11 @@
     }
     .imgtest img{width:100%;
     min-height:100%; text-align:center;
+    }
+    .ui-content p{
+        margin: 3px;
+        font-family: "微软雅黑";
+        text-align:center;
     }
   </style>
 </body>
