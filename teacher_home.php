@@ -5,8 +5,8 @@
 
 <!--变量初始化部分-->
 <?php 
-	$now_sid=-1;
-	$now_tid=1;
+	$now_tid=$_SESSION['MM_uid'];
+	$now_role=$_SESSION['MM_role'];
 ?>
 
 <!--数据库操作部分 -->

@@ -9,8 +9,8 @@
     mysql_select_db($database_tankdb,$tankdb);
     echo "1";
     //这都是要从session取值的
-    $now_user=1;//id
-    $now_type=1;//类型为老师
+    $now_user=$_SESSION['MM_uid'];
+    $now_type=$_SESSION['MM_role'];
 
     $problem_id = $_GET['qid'];
     echo $problem_id;

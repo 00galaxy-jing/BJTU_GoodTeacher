@@ -5,7 +5,8 @@
 
 <!--变量初始化部分-->
 <?php 
-	$now_uid=1;
+	$now_uid=$_SESSION['MM_uid'];
+	$now_role=$_SESSION['MM_role'];
 ?>
 
 <!--数据库操作部分 -->
@@ -216,7 +217,7 @@
             <a href="question.php" data-icon="edit" data-theme="a">提问</a>
           </li>
           <li>
-            <a href="me.php" data-icon="user" data-theme="a">我</a>
+            <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
           </li>
           <li>
             <a data-icon="bars" data-theme="a">更多</a>

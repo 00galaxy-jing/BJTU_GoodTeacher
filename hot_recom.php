@@ -5,8 +5,8 @@
 
 <!--变量初始化部分-->
 <?php 
-	$now_type=1;
-	$now_tid=1;
+	$now_uid=$_SESSION['MM_uid'];
+	$now_type=$_SESSION['MM_role'];
 ?>
 
 <!--数据库操作部分 -->
@@ -231,7 +231,7 @@
       <div data-role="navbar" data-position="fixed">
         <ul>
           <li>
-          	<?php if($now_sid!=-1) {?>
+          	<?php if($now_type == 2) {?>
             	<a href="home.php" data-icon="home"  data-theme="a">动态</a>
             <?php } else {?>
             	<a href="teacher_home.php" data-icon="home"  data-theme="a">动态</a>
@@ -244,7 +244,7 @@
             <a href="question.php" data-icon="edit" data-theme="a">提问</a>
           </li>
           <li>
-            <a href="me.php" data-icon="user" data-theme="a">我</a>
+            <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
           </li>
           <li>
             <a data-icon="bars" data-theme="a">更多</a>

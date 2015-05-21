@@ -5,7 +5,8 @@
 
 <!--变量初始化部分-->
 <?php 
-	$now_uid=1;
+	$now_uid=$_SESSION['MM_uid'];
+	$now_role=$_SESSION['MM_role'];
 ?>
 
 <!--数据库操作部分 -->
@@ -15,9 +16,8 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 
 <head> 
 	<?php require('header.php');?>
@@ -241,7 +241,7 @@
             <a href="question.php" data-icon="edit" data-theme="a">提问</a>
           </li>
           <li>
-            <a href="me.php" data-icon="user" data-theme="a">我</a>
+            <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
           </li>
           <li>
             <a data-icon="bars" data-theme="a">更多</a>

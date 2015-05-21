@@ -9,8 +9,8 @@
   if(isset($_GET['sid'])){
         $stu_id = $_GET['sid'];
     }
-  $now_uid = 1;
-  $now_type = 1;//学生
+  $now_uid=$_SESSION['MM_uid'];
+  $now_type=$_SESSION['MM_role'];
 
   //调用function
   $user_info = get_student_info($stu_id);
@@ -87,7 +87,7 @@
             <a href="question.php" data-icon="edit" data-theme="a">提问</a>
           </li>
           <li>
-            <a href="me.php" data-icon="user" data-theme="a" class="ui-btn-active">我</a>
+            <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a" class="ui-btn-active">我</a>
           </li>
           <li>
             <a data-icon="bars" data-theme="a">更多</a>
