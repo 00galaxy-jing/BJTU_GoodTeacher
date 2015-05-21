@@ -38,8 +38,15 @@
 		}
 		#reply_submit{
 			padding: 5px;
-			margin: 5px 0px 8px;
-			width: 100%;
+			margin: 0px 5% 0px;
+			width: 95%;
+			background-color: rgb(79, 141, 255);
+  			text-shadow: none;
+		}
+		#esc_btn{
+			padding: 5px;
+			margin: 0px 5% 0px 0px;
+			width: 95%;
 		}
 	</style>
 	<script type="text/javascript">
@@ -47,6 +54,11 @@
 		{
 			document.getElementById("reply_button").style.display="none";
 			document.getElementById("reply_context").style.display="";
+		}
+		function reply_close()
+		{
+			document.getElementById("reply_button").style.display="";
+			document.getElementById("reply_context").style.display="none";
 		}
 	</script>
 </head>
@@ -89,10 +101,21 @@
 				</table> 
 			</div>
 			<button type="button" id="reply_button" onclick="reply_modal()">回     复</button>
-				<div id="reply_context" style="display:none;">
-					<textarea style="width:100%;"></textarea>
-					<button type="button" id="reply_submit" onclick="reply_submit()">提     交</button>
-				</div>
+				<form action="answer_submit.php?qid=<?php echo $row_question['problem_id'];?>&pto=<?php echo $row_question['problem_to']; ?>"  method="post" name="form1" id="form1">
+					<div id="reply_context" style="display:none;">
+						<textarea id="ans_content" name="ans_content" style="width:100%;"></textarea>
+						<table width="100%">
+							<tr>
+								<td width="50%" style="padding:0px">
+									<button type="button" id="esc_btn" onclick="reply_close()">取     消</button>
+								</td>
+								<td style="padding:0px">
+									<button type="submit" id="reply_submit">提     交</button>
+								</td>
+							</tr>					
+						</table>
+					</div>
+				</form>
 
 			<!--列表开始-->
 			<div class="bbsdata_list" style="padding-top:5px;padding-bottom:5px;" >
