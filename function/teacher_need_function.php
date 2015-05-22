@@ -45,3 +45,17 @@ function get_need_me($uid){
 
   return $NeedAnswerRS; 
 }
+
+//获取教师所属分组
+function get_have_answered($uid){
+
+  global $tankdb;
+
+  $selNeedAnswer="SELECT * FROM gt_group,gt_problem,gt_student WHERE problem_to=$uid AND problem_group = group_id AND problem_point_status = 1 AND stu_id=problem_from";
+  $NeedAnswerRS = mysql_query($selNeedAnswer, $tankdb) or die(mysql_error());
+
+  return $NeedAnswerRS; 
+}
+
+
+?>

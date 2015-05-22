@@ -10,7 +10,11 @@
   		$now_groupid = $_GET['gid'];
 	}
 
-	$now_uid = 1;
+	$now_uid=$_SESSION['MM_uid'];
+	$now_role=$_SESSION['MM_role'];
+	$pre_url=$_SESSION['MM_preurl'];	
+	$now_url=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+	$_SESSION['MM_preurl'] =  $now_url;
 ?>
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -21,9 +25,10 @@
 
 <head> 
 	<?php require('header.php');?>
+	<!--
 	<script language="javascript">
 		if (top.location != location) top.location.href = location.href;
-	</script>
+	</script>-->
 </head>
 
 <body>	
@@ -40,9 +45,17 @@
 	                        else;
                         }
                  });
-			//window.location.reload(true);
-			//window.location.href="group_view.php?gid="+gid;
-			history.go(0);
+			
+			//window.location.href="assist.php";
+			//history.go(0);
+			//window.location.href=window.location.href;		
+			/*var ihtml = document.getElementById('have_int').innerHTML;
+			var r = ihtml.split('：');
+			var num = parseInt(r[1])+1;
+			var nhtml = "感兴趣："+num;
+			//alert(nhtml);
+			document.getElementById('have_int').innerHTML = nhtml;*/
+			window.location.reload(true);
 		}
 		function del_int(gid,uid)
 		{
@@ -55,10 +68,24 @@
 	                        else;
                         }
                  });
-			//window.location.reload(true);
+			//window.top.location.reload(true);
+			/*var ihtml2 = document.getElementById('have_int').innerHTML;
+			var r2 = ihtml2.split('：');
+			var num2 = parseInt(r2[1])-1;
+			var nhtml2 = "感兴趣："+num2;
+			//alert(nhtml2);
+			document.getElementById('have_int').innerHTML = nhtml2;*/
+			window.location.reload();
 			//window.location.href="group_view.php?gid="+gid;
-			history.go(0);
+			//window.location.href="assist.php";
 		}
+		function myrefresh()
+		{
+		//window.location.reload();
+		history.go(0);
+		}
+		//setTimeout('myrefresh()',5000); //马上跳转
+
 	</script>
 				<!--数据库操作部分-->
 			<?php 
@@ -91,11 +118,13 @@
 									<p style="font-size:120%"><?php echo $group_info['group_description']; ?></p>
 									<p><span >老师：<?php echo $group_info['group_tnum']; ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color:rgb(82, 179, 202);">查看所有老师</span></p>				
 									<p>
-									<span >感兴趣：<?php echo get_group_snum($now_groupid); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp
-									<?php if(is_interest($group_info['group_id'],$now_uid)==0){ ?>
-										<button type="button" onclick="add_int(<?php echo $group_info['group_id']; ?>,<?php echo $now_uid; ?>)" style="  margin: 0px;border: 0px;padding: 0px;width: 50px;display:-webkit-inline-box;  font-size: 13px;font-family: 微软雅黑;background-color:rgb(54, 170, 253);text-shadow:none">关注</button></p>
-									<?php }else{ ?>
-										<button type="button" onclick="del_int(<?php echo $group_info['group_id']; ?>,<?php echo $now_uid; ?>)" style="  margin: 0px;border: 0px;padding: 0px;width: 70px;display:-webkit-inline-box;  font-size: 13px;font-family: 微软雅黑;background-color:rgb(54, 170, 253);text-shadow:none">取消关注</button></p>
+									<span id="have_int">感兴趣：<?php echo get_group_snum($now_groupid); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp
+									<?php if($now_role==2){ ?>
+										<?php if(is_interest($group_info['group_id'],$now_uid)==0){ ?>
+											<button type="button" onclick="add_int(<?php echo $group_info['group_id']; ?>,<?php echo $now_uid; ?>)" style="  margin: 0px;border: 0px;padding: 0px;width: 50px;display:-webkit-inline-box;  font-size: 13px;font-family: 微软雅黑;background-color:rgb(54, 170, 253);text-shadow:none">关注</button></p>
+										<?php }else{ ?>
+											<button type="button" onclick="del_int(<?php echo $group_info['group_id']; ?>,<?php echo $now_uid; ?>)" style="  margin: 0px;border: 0px;padding: 0px;width: 70px;display:-webkit-inline-box;  font-size: 13px;font-family: 微软雅黑;background-color:rgb(54, 170, 253);text-shadow:none">取消关注</button></p>
+										<?php } ?>
 									<?php } ?>
 								</dd>
 							</dl>
@@ -152,7 +181,7 @@
 						</tr>
 					<?php }else {?>
 							<td>
-								<p style="  text-align: left;margin-left:24%">暂无老师回复</p>
+								<p style="  text-align: left;margin-left:20%">指定教师暂未回复</p>
 							</td>
 					<?php }?>
 				</table>	

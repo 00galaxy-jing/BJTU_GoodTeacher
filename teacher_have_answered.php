@@ -11,7 +11,7 @@
 
 <!--数据库操作部分 -->
 <?php 
-	$need_meRS = get_need_me($now_tid);
+	$need_meRS = get_have_answered($now_tid);
 ?>
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -126,8 +126,8 @@
 
     <div class="nav" id="top">
 
-	<a class="black bold c96 font14 fl nav_list " href="teacher_need_me.php" title="未回答" style="color:black;">未回答</a>
-	<a class=" c96 font14 fl nav_list b25" href="teacher_have_answered.php" style="color:black;font-weight:500" title="已回答">已回答</a>
+	<a class=" c96 font14 fl nav_list b25" href="teacher_need_me.php" title="未回答" style="color:black;font-weight:500">未回答</a>
+	<a class="black bold c96 font14 fl nav_list" href="teacher_have_answered.php" style="color:black;" title="已回答">已回答</a>
 
 	<p class="clear"></p>
 
@@ -215,13 +215,13 @@
       <div data-role="navbar" data-position="fixed">
         <ul>
           <li>
-            <a href="teacher_home.php" data-icon="home" data-theme="a">动态</a>
+            <a href="teacher_home.php" data-icon="home"   data-theme="a">动态</a>
           </li>
           <li>
             <a href="hot_recom.php" rel="external" data-icon="star" data-theme="a">发现</a>
           </li>
           <li>
-            <a href="teacher_need_me.php" data-icon="edit"  class="ui-btn-active"  data-theme="a">回答</a>
+            <a href="teacher_need_me.php" data-icon="edit" class="ui-btn-active" data-theme="a">回答</a>
           </li>
           <li>
             <a href="me.php" data-icon="user" data-theme="a">我</a>
