@@ -14,10 +14,10 @@
 
   //调用function
   $user_info = get_student_info($stu_id);
-  $my_interest = get_student_interest($stu_id);//我关注的分组
-  $my_follow = get_student_teacher($stu_id);//关注的人
-  $my_problem = get_my_pro($stu_id);//我的问题
-  $my_answer = get_my_ans($stu_id);//我的回答
+  $my_interest = get_student_interest($stu_id);
+  $my_follow = get_student_teacher($stu_id);
+  $my_problem = get_my_pro($stu_id);
+  $my_answer = get_my_ans($stu_id);
 
 ?>
 <!DOCTYPE html>
