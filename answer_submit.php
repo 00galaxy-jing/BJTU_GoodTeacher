@@ -41,23 +41,23 @@
       $proInfo = mysql_fetch_assoc($selRS);
       $proFrom = $proInfo['problem_from'];
 
-      if($now_type==2)
-      {
-        $selUser = "SELECT * FROM gt_student WHERE stu_id=$now_user";
-        $userRS = mysql_query($selUser, $tankdb) or die(mysql_error());
-        $userInfo = mysql_fetch_array($userRS);
-        $userName = $userInfo['stu_name'];
-      }
-      else
-      {
-        $selUser = "SELECT * FROM gt_teacher WHERE tea_id=$now_user";
-        $userRS = mysql_query($selUser, $tankdb) or die(mysql_error());
-        $userInfo = mysql_fetch_array($userRS);
-        $userName = $userInfo['tea_name'];
-      }
-      echo $userName;
+      // if($now_type==2)
+      // {
+      //   $selUser = "SELECT * FROM gt_student WHERE stu_id=$now_user";
+      //   $userRS = mysql_query($selUser, $tankdb) or die(mysql_error());
+      //   $userInfo = mysql_fetch_array($userRS);
+      //   $userName = $userInfo['stu_name'];
+      // }
+      // else
+      // {
+      //   $selUser = "SELECT * FROM gt_teacher WHERE tea_id=$now_user";
+      //   $userRS = mysql_query($selUser, $tankdb) or die(mysql_error());
+      //   $userInfo = mysql_fetch_array($userRS);
+      //   $userName = $userInfo['tea_name'];
+      // }
+      // echo $userName;
 
-      $mes_con="".$userName."回答了您的问题【".$proInfo['problem_title']."】";
+      $mes_con="回答了您的问题";
       $insert_mess="INSERT INTO gt_message(mes_from,mes_from_role,mes_to,mes_to_role,mes_type,mes_pid,mes_time,mes_content)
                     VALUES($now_user,$now_type,$proFrom,2,2,$problem_id,'$now_time','$mes_con')";
       $messRS = mysql_query($insert_mess, $tankdb) or die(mysql_error());

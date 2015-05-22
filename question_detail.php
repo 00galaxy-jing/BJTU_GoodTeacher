@@ -2,6 +2,7 @@
 <?php require_once('session/session_unset.php'); ?>
 <?php require_once('session/session.php'); ?>
 <?php require_once('function/question_function.php'); ?>
+<?php require_once('function/message_function.php'); ?>
 
 <!--变量初始化部分-->
 <?php 
@@ -9,6 +10,11 @@
 	if(isset($_GET['qid'])){
   		$question_id = $_GET['qid'];
 	}
+	$mes = -1;
+  	if(isset($_GET['mes'])){
+        $mes = $_GET['mes'];
+        set_read($mes);
+    }
 
 	$now_uid=$_SESSION['MM_uid'];
 	$now_role=$_SESSION['MM_role'];

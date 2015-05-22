@@ -2,12 +2,18 @@
 <?php require_once('session/session_unset.php'); ?>
 <?php require_once('session/session.php'); ?>
 <?php require_once('function/student_function.php'); ?>
+<?php require_once('function/message_function.php'); ?>
 
 <?php 
   //初始化
   $stu_id = -1;
   if(isset($_GET['sid'])){
         $stu_id = $_GET['sid'];
+    }
+  $mes = -1;
+  if(isset($_GET['mes'])){
+        $mes = $_GET['mes'];
+        set_read($mes);
     }
   $now_uid=$_SESSION['MM_uid'];
   $now_type=$_SESSION['MM_role'];
@@ -20,17 +26,14 @@
   $my_answer = get_my_ans($stu_id);
 
 ?>
-<!DOCTYPE html>
-<html>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, user-scalable=no">
-  <link href="./js/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
-  <script src="./js/jquery-1.9.1.min.js"></script>
-  <script src="./js/jquery.mobile-1.4.5.min.js"></script>
-
-  <title>交大好老师</title>
+  <?php require('header.php'); ?>
 </head>
 
 <body>

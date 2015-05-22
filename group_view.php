@@ -103,7 +103,7 @@
 			<?php 
 				$group_info = get_group_info($now_groupid);
 				$problem_infoRS = get_pro_info($now_groupid);
-				echo $group_info['group_snum'];
+				//echo $group_info['group_snum'];
 			?> 
 	<div style="height:40px"data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
 	      <button type="button" onClick="javascript:history.go(-1);">返回</button>
