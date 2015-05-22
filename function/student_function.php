@@ -95,5 +95,47 @@ function get_my_ans($uid){
   return $int_ans;
 }
 
+//获取我的分组
+function get_my_group($uid){
 
+  global $tankdb;
+
+  $selStuAns="SELECT * FROM gt_stu_interest WHERE si_sid=$uid";
+  $GroupRS = mysql_query($selStuAns, $tankdb) or die(mysql_error());
+
+  return $GroupRS;
+}
+
+//获取我的问题
+function get_my_problem($uid){
+
+  global $tankdb;
+
+  $selStuAns="SELECT * FROM gt_problem WHERE problem_from=$uid";
+  $ProblemRS = mysql_query($selStuAns, $tankdb) or die(mysql_error());
+
+  return $ProblemRS;
+}
+
+//获取我的回答
+function get_my_answer($uid){
+
+  global $tankdb;
+
+  $selStuAns="SELECT * FROM gt_problem WHERE problem_from=$uid";
+  $AnswerRS = mysql_query($selStuAns, $tankdb) or die(mysql_error());
+
+  return $AnswerRS;
+}
+
+//获取我的关注
+function get_my_interest($uid){
+
+  global $tankdb;
+
+  $selStuAns="SELECT * FROM interest_teacher WHERE st_id=$uid";
+  $InterestRS = mysql_query($selStuAns, $tankdb) or die(mysql_error());
+
+  return $InterestRS;
+}
 ?>

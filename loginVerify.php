@@ -47,5 +47,9 @@ $num=mysql_num_rows($rs); //获取记录数
 		 	//echo "<a href='user_login.php'>返回登陆页面</a>";
 			//header("location:user_login.php");
 		}
-		header("location:".$GOTO);
+
+		//重定向
+		// header("Location: ".$GOTO);
+		mysql_close($tankdb);
+		header("Location: home.php");
 ?>
