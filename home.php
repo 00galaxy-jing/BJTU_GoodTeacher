@@ -35,7 +35,20 @@
 	        <input type="search" name id="search" data-mini="false" data-clear-btn="true" placeholder="搜索">
 	      </div>
     	</div>
-        <div id="active_br"></div>        
+        <div id="active_br"></div>  
+        <script type="text/javascript">
+			function get_data()
+			{
+				$.ajax({
+					url: 'getMessage.php',
+					success: function(data) {
+						document.getElementById('more_m').innerHTML=data;
+					}
+				});
+			}
+
+			setInterval("get_data()",1000);//1秒一次执行
+		</script>      
 
         <style>
 
@@ -244,7 +257,7 @@
             <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
           </li>
           <li>
-            <a data-icon="bars" data-theme="a">更多</a>
+            <a data-icon="bars" data-theme="a" id="more_m">更多</a>
           </li>
         </ul>
       </div>
