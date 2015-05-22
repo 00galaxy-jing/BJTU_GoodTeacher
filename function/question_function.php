@@ -77,4 +77,16 @@ function get_student_answer($pro_id){
   return $AnswerInfoRS;
 }
 
+//是否赞过
+function is_good($answer_id,$uid,$urole){
+
+  global $tankdb;
+
+  $selIsGood="SELECT * FROM gt_good WHERE good_uid=$uid AND good_role=$urole AND good_aid=$answer_id";
+  $RS = mysql_query($selIsGood, $tankdb) or die(mysql_error());
+  $row_num = mysql_fetch_assoc($RS);
+  return $row_num;
+}
+
+
 ?>

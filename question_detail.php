@@ -64,6 +64,36 @@
 			document.getElementById("reply_button").style.display="";
 			document.getElementById("reply_context").style.display="none";
 		}
+		function set_good(aid,uid,urole)
+		{
+			$.ajax( {
+                        type: "post",
+                        url : "set_good.php",
+                        data: {"aid":aid,"uid":uid,"urole":urole},
+                        success: function(data){//如果调用php成功,data为执行php文件后的返回值
+	                        if(data == 1);
+	                        else;
+                        }
+                 });
+			//window.location.reload(true);
+			//window.location.href="group_view.php?gid="+gid;
+			history.go(0);
+		}
+		function del_good(aid,uid,urole)
+		{
+			$.ajax( {
+                        type: "post",
+                        url : "del_good.php",
+                        data: {"aid":aid,"uid":uid,"urole":urole},
+                        success: function(data){//如果调用php成功,data为执行php文件后的返回值
+	                        if(data == 1);
+	                        else;
+                        }
+                 });
+			//window.location.reload(true);
+			//window.location.href="group_view.php?gid="+gid;
+			history.go(0);
+		}
 	</script>	
 	<div style="height:40px"data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
 	      <button type="button" onClick="javascript:history.go(-1);">返回</button>
@@ -140,7 +170,15 @@
 								<td  style="height:100%;padding-top:0px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
 									<dd>
 										<p style="color:rgb(33, 177, 219)"><?php echo $answer_info['tea_name']; ?></p>
-											<p><?php echo $answer_info['answer_content']; ?></p>		
+											<p><?php echo $answer_info['answer_content']; ?></p>	
+											<div style="  width: 50px;float: right;">
+												<span> <?php echo $answer_info['answer_good']; ?></span>&nbsp
+												<?php if(is_good($answer_info['answer_id'],$now_uid,$now_role) == 0){ ?>
+													<button type="button" onclick="set_good(<?php echo $answer_info['answer_id']; ?>,<?php echo $now_uid; ?>,<?php echo $now_role; ?>)" style="background:url(image/jobs/no_good.png) no-repeat;  width: 24px;height: 20px;padding: 3px;border: 0px;box-shadow: none;margin: 0px;display: -webkit-inline-box;"></button>
+												<?php }else {?>
+													<button type="button" onclick="del_good(<?php echo $answer_info['answer_id']; ?>,<?php echo $now_uid; ?>,<?php echo $now_role; ?>)" style="background:url(image/jobs/good.png) no-repeat;  width: 24px;height: 20px;padding: 3px;border: 0px;box-shadow: none;margin: 0px;display: -webkit-inline-box;"></button>
+												<?php } ?>
+											</div>	
 									</dd>
 								</td>
 							</tr>
@@ -170,7 +208,15 @@
 									<td  style="height:100%;padding-top:0px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
 										<dd>
 											<p style="color:rgb(33, 177, 219)"><?php echo $row_pro['tea_name']; ?></p>
-												<p><?php echo $row_pro['answer_content']; ?></p>		
+												<p><?php echo $row_pro['answer_content']; ?></p>	
+												<div style="  width: 50px;float: right;">
+													<span> <?php echo $row_pro['answer_good']; ?></span>&nbsp
+													<?php if(is_good($row_pro['answer_id'],$now_uid,$now_role) == 0){ ?>
+														<button type="button" onclick="set_good(<?php echo $row_pro['answer_id']; ?>,<?php echo $now_uid; ?>,<?php echo $now_role; ?>)" style="background:url(image/jobs/no_good.png) no-repeat;  width: 24px;height: 20px;padding: 3px;border: 0px;box-shadow: none;margin: 0px;display: -webkit-inline-box;"></button>
+													<?php }else {?>
+														<button type="button" onclick="del_good(<?php echo $row_pro['answer_id']; ?>,<?php echo $now_uid; ?>,<?php echo $now_role; ?>)" style="background:url(image/jobs/good.png) no-repeat;  width: 24px;height: 20px;padding: 3px;border: 0px;box-shadow: none;margin: 0px;display: -webkit-inline-box;"></button>
+													<?php } ?>
+											</div>	
 										</dd>
 									</td>
 								</tr>
@@ -207,7 +253,15 @@
 									<td  style="height:100%;padding-top:0px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
 										<dd>
 											<p style="color:rgb(33, 177, 219)"><?php echo $row_answer['stu_name']; ?></p>
-												<p><?php echo $row_answer['answer_content']; ?></p>		
+												<p><?php echo $row_answer['answer_content']; ?></p>	
+												<div style="  width: 50px;float: right;">
+													<span> <?php echo $row_answer['answer_good']; ?></span>&nbsp
+													<?php if(is_good($row_answer['answer_id'],$now_uid,$now_role) == 0){ ?>
+														<button type="button" onclick="set_good(<?php echo $row_answer['answer_id']; ?>,<?php echo $now_uid; ?>,<?php echo $now_role; ?>)" style="background:url(image/jobs/no_good.png) no-repeat;  width: 24px;height: 20px;padding: 3px;border: 0px;box-shadow: none;margin: 0px;display: -webkit-inline-box;"></button>
+													<?php }else {?>
+														<button type="button" onclick="del_good(<?php echo $row_answer['answer_id']; ?>,<?php echo $now_uid; ?>,<?php echo $now_role; ?>)" style="background:url(image/jobs/good.png) no-repeat;  width: 24px;height: 20px;padding: 3px;border: 0px;box-shadow: none;margin: 0px;display: -webkit-inline-box;"></button>
+													<?php } ?>
+											</div>	
 										</dd>
 									</td>
 									
