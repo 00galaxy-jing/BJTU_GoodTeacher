@@ -163,8 +163,7 @@
 								<dd class="bbsdata_info">
 									<p style="font-size:120%;  font-weight: normal;"><?php echo $row_group['group_description'] ?></p>
 									<span style="font-weight: normal;">老师：<?php echo $row_group['group_tnum'] ?></span>&nbsp&nbsp				
-									<span style="font-weight: normal;">感兴趣：<?php echo $row_group['group_snum'] ?></span>			
-								</dd>
+									<span style="font-weight: normal;">感兴趣：<?php echo $row_group['group_snum'] ?></span>
 							</dl>
 						</td>
 					</tr>

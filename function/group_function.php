@@ -42,7 +42,19 @@ function get_group_info($g_id){
 
   $selGroupInfo="SELECT * FROM gt_group WHERE group_id=$g_id";
   $GroupInfoRS = mysql_query($selGroupInfo, $tankdb) or die(mysql_error());
-  return $GroupInfoRS;
+  $group_info = mysql_fetch_array($GroupInfoRS);
+  return $group_info;
+}
+
+//获取感兴趣信息
+function get_group_snum($g_id){
+
+  global $tankdb;
+
+  $selGroupInfo="SELECT * FROM gt_group WHERE group_id=$g_id";
+  $GroupInfoRS = mysql_query($selGroupInfo, $tankdb) or die(mysql_error());
+  $group_info = mysql_fetch_array($GroupInfoRS);
+  return $group_info['group_snum'];
 }
 
 //获取问题信息
@@ -74,6 +86,17 @@ function get_all_group(){
   $selAllGroup="SELECT * FROM gt_group";
   $GroupRS = mysql_query($selAllGroup, $tankdb) or die(mysql_error());
   return $GroupRS;
+}
+
+//获取关注信息
+function is_interest($gid,$uid){
+
+  global $tankdb;
+
+  $selAllGroup="SELECT * FROM gt_stu_interest WHERE si_sid=$uid AND si_gid=$gid";
+  $GroupRS = mysql_query($selAllGroup, $tankdb) or die(mysql_error());
+  $row_num = mysql_num_rows($GroupRS);
+  return $row_num;
 }
 
 ?>
