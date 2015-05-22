@@ -42,7 +42,7 @@
     <div role="main" class="ui-content">
       <!-- 个人信息 -->
         <div class="imgtest" style="text-align:center;">
-          <div style="  font-family: cursive;font-size: 20px;"><?php echo $user_info['stu_name']; ?></div>
+          <div style="font-family: cursive;font-size: 20px;"><?php echo $user_info['stu_name']; ?></div>
           <figure style="  margin-top: 5px;margin-bottom:5px">
             <div>
               <img src="<?php echo $user_info['stu_pic']; ?>" />
@@ -53,25 +53,71 @@
         <p><?php echo $user_info['stu_mail']; ?></p>
         <!-- 消息列表 -->
         <?php if($now_type==2 && ($stu_id==$now_uid)) {?>
-          <div data-role="content" id="me_quick_access" name = "me_quick_access">
-            <ul data-role="listview" data-inset="true">
-              <li data-role="list-divider">我</li>
-              <li>我关注的分组<span class="ui-li-count"><?php echo $my_interest; ?></span></li>
-              <li>我关注的老师<span class="ui-li-count"><?php echo $my_follow; ?></span></li>
-              <li>我的问题<span class="ui-li-count"><?php echo $my_problem; ?></span></li>
-              <li>我的回答<span class="ui-li-count"><?php echo $my_answer; ?></span></li>
-              <li>我收到的赞<span class="ui-li-count"><?php echo $user_info['stu_get_good']; ?></span></li>
-            </ul>
-          </div>
+          <div data-role="content">
+          <ul data-role="listview" data-inset="true">
+            <li>
+              <a href="#">
+              <img src="./img/student/krislu.jpg" class="ui-li-icon">
+                  我关注的分组
+                  <span class="ui-li-count"><?php echo $my_interest; ?></span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                  <img src="./img/student/krislu.jpg" class="ui-li-icon" >
+                  我关注的老师
+                  <span class="ui-li-count"><?php echo $my_follow; ?></span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                  <img src="./img/student/krislu.jpg" class="ui-li-icon">
+                  我的问题
+                  <span class="ui-li-count"><?php echo $my_problem; ?></span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/student/krislu.jpg" class="ui-li-icon">
+                我的回答
+                <span class="ui-li-count"><?php echo $my_answer; ?></span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./img/student/krislu.jpg" class="ui-li-icon">
+                我收到的赞
+                <span class="ui-li-count"><?php echo $user_info['stu_get_good']; ?></span>
+              </a>
+            </li>
+          </ul>
+        </div>
         <?php }else {?>
-          <div data-role="content" id="me_quick_access" name = "me_quick_access">
-            <ul data-role="listview" data-inset="true">
-              <li data-role="list-divider">TA</li>
-              <li>TA的问题<span class="ui-li-count"><?php echo $my_problem; ?></span></li>
-              <li>TA的回答<span class="ui-li-count"><?php echo $my_answer; ?></span></li>
-              <li>TA收到的赞<span class="ui-li-count"><?php echo $user_info['stu_get_good']; ?></span></li>
-            </ul>
-          </div>
+          <div data-role="content">
+          <ul data-role="listview" data-inset="true">
+          <li>
+            <a href="#">
+                <img src="./img/student/krislu.jpg" class="ui-li-icon">
+                TA的问题
+                <span class="ui-li-count"><?php echo $my_problem; ?></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./img/student/krislu.jpg" class="ui-li-icon">
+              TA的回答
+              <span class="ui-li-count"><?php echo $my_answer; ?></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./img/student/krislu.jpg" class="ui-li-icon">
+              TA收到的赞
+              <span class="ui-li-count"><?php echo $user_info['stu_get_good']; ?></span>
+            </a>
+          </li>
+          </ul>
+        </div>
         <?php }?>
     </div>
     <div data-position="fixed" data-role="footer">
