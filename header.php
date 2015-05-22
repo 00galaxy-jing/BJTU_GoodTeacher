@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, user-scalable=no">
@@ -14,5 +12,3 @@
   <!-- Uncomment the following to include cordova in your android project -->
   <!--<script src="//ezoui.com/platforms/android/cordova.js"></script>-->
   <title>交大好老师</title>
-
-  </html>

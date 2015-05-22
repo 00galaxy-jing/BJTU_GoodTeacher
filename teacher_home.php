@@ -12,6 +12,9 @@
 <!--数据库操作部分 -->
 <?php 
 	$tea_group = get_my_group($now_tid);
+	$pre_url=$_SESSION['MM_preurl'];	
+	$now_url=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+	$_SESSION['MM_preurl'] =  $now_url;
 ?>
 
 <?xml version="1.0" encoding="UTF-8"?>
