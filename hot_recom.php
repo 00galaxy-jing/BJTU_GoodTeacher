@@ -241,7 +241,11 @@
             <a href="hot_recom.php" rel="external" class="ui-btn-active" data-icon="star" data-theme="a">发现</a>
           </li>
           <li>
-            <a href="question.php" data-icon="edit" data-theme="a">提问</a>
+          	<?php if($now_type == 2) {?>
+           		<a href="question.php" data-icon="edit" data-theme="a">提问</a>
+           	<?php } else {?>
+           		<a href="teacher_need_me.php" data-icon="edit"  data-theme="a">回答</a>
+           	<?php }?>
           </li>
           <li>
             <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
