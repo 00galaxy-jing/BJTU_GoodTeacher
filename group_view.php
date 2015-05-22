@@ -10,7 +10,8 @@
   		$now_groupid = $_GET['gid'];
 	}
 
-	$now_uid = 1;
+	$now_uid=$_SESSION['MM_uid'];
+	$now_role=$_SESSION['MM_role'];
 ?>
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -40,9 +41,17 @@
 	                        else;
                         }
                  });
-			//window.location.reload(true);
-			//window.location.href="group_view.php?gid="+gid;
-			history.go(0);
+			
+			//window.location.href="assist.php";
+			//history.go(0);
+			//window.location.href=window.location.href;		
+			/*var ihtml = document.getElementById('have_int').innerHTML;
+			var r = ihtml.split('：');
+			var num = parseInt(r[1])+1;
+			var nhtml = "感兴趣："+num;
+			//alert(nhtml);
+			document.getElementById('have_int').innerHTML = nhtml;*/
+			window.location.reload(true);
 		}
 		function del_int(gid,uid)
 		{
@@ -55,16 +64,30 @@
 	                        else;
                         }
                  });
-			//window.location.reload(true);
+			//window.top.location.reload(true);
+			/*var ihtml2 = document.getElementById('have_int').innerHTML;
+			var r2 = ihtml2.split('：');
+			var num2 = parseInt(r2[1])-1;
+			var nhtml2 = "感兴趣："+num2;
+			//alert(nhtml2);
+			document.getElementById('have_int').innerHTML = nhtml2;*/
+			window.location.reload();
 			//window.location.href="group_view.php?gid="+gid;
-			history.go(0);
+			//window.location.href="assist.php";
 		}
+		function myrefresh()
+		{
+		//window.location.reload();
+		history.go(0);
+		}
+		//setTimeout('myrefresh()',5000); //马上跳转
+
 	</script>
 				<!--数据库操作部分-->
 			<?php 
 				$group_info = get_group_info($now_groupid);
 				$problem_infoRS = get_pro_info($now_groupid);
-				echo $group_info['group_snum'];
+				//echo $group_info['group_snum'];
 			?> 
 	<div style="height:40px"data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
 	      <button type="button" onClick="javascript:history.go(-1);">返回</button>
@@ -91,7 +114,7 @@
 									<p style="font-size:120%"><?php echo $group_info['group_description']; ?></p>
 									<p><span >老师：<?php echo $group_info['group_tnum']; ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color:rgb(82, 179, 202);">查看所有老师</span></p>				
 									<p>
-									<span >感兴趣：<?php echo get_group_snum($now_groupid); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp
+									<span id="have_int">感兴趣：<?php echo get_group_snum($now_groupid); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp
 									<?php if(is_interest($group_info['group_id'],$now_uid)==0){ ?>
 										<button type="button" onclick="add_int(<?php echo $group_info['group_id']; ?>,<?php echo $now_uid; ?>)" style="  margin: 0px;border: 0px;padding: 0px;width: 50px;display:-webkit-inline-box;  font-size: 13px;font-family: 微软雅黑;background-color:rgb(54, 170, 253);text-shadow:none">关注</button></p>
 									<?php }else{ ?>
