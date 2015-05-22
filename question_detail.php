@@ -134,7 +134,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td style="width:20%;padding-top:0px;padding-bottom:3px;vertical-align:top;"  > 
+								<td style="width:60px;padding-top:0px;padding-bottom:3px;vertical-align:top;"  > 
 									<img src="<?php echo $answer_info['tea_pic']; ?>" width="100%" >
 								</td>
 								<td  style="height:100%;padding-top:0px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
@@ -164,7 +164,7 @@
 								</tr>
 								<?php while($row_pro = mysql_fetch_assoc($other_tea_answerRS)) {?>
 								<tr>
-									<td style="width:20%;padding-top:0px;padding-bottom:3px;vertical-align:top;"  > 
+									<td style="width:60px;padding-top:0px;padding-bottom:3px;vertical-align:top;"  > 
 										<img src="<?php echo $row_pro['tea_pic']; ?>" width="100%" >
 									</td>
 									<td  style="height:100%;padding-top:0px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
@@ -201,7 +201,7 @@
 								</tr>
 								<?php while($row_answer = mysql_fetch_assoc($student_answerRS)) {?>
 								<tr>
-									<td style="width:20%;padding-top:0px;padding-bottom:3px;vertical-align:top;"  > 
+									<td style="width:60px;padding-top:0px;padding-bottom:3px;vertical-align:top;"  > 
 										<img src="<?php echo $row_answer['stu_pic']; ?>" width="100%" >
 									</td>
 									<td  style="height:100%;padding-top:0px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">

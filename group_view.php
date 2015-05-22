@@ -13,13 +13,6 @@
 	$now_uid = 1;
 ?>
 
-<!--数据库操作部分-->
-<?php 
-	$group_infoRS = get_group_info($now_groupid);
-	$group_info = mysql_fetch_array($group_infoRS);
-	$problem_infoRS = get_pro_info($now_groupid);
-?> 
-
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
@@ -34,6 +27,45 @@
 </head>
 
 <body>	
+
+	<script type="text/javascript">
+		function add_int(gid,uid)
+		{
+			$.ajax( {
+                        type: "post",
+                        url : "add_int.php",
+                        data: {"gid":gid,"uid":uid},
+                        success: function(data){//如果调用php成功,data为执行php文件后的返回值
+	                        if(data == 1);
+	                        else;
+                        }
+                 });
+			//window.location.reload(true);
+			//window.location.href="group_view.php?gid="+gid;
+			history.go(0);
+		}
+		function del_int(gid,uid)
+		{
+			$.ajax( {
+                        type: "post",
+                        url : "del_int.php",
+                        data: {"gid":gid,"uid":uid},
+                        success: function(data){//如果调用php成功,data为执行php文件后的返回值
+	                        if(data == 1);
+	                        else;
+                        }
+                 });
+			//window.location.reload(true);
+			//window.location.href="group_view.php?gid="+gid;
+			history.go(0);
+		}
+	</script>
+				<!--数据库操作部分-->
+			<?php 
+				$group_info = get_group_info($now_groupid);
+				$problem_infoRS = get_pro_info($now_groupid);
+				echo $group_info['group_snum'];
+			?> 
 	<div style="height:40px"data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
 	      <button type="button" onClick="javascript:history.go(-1);">返回</button>
 	      <h3>交大好老师</h3>
@@ -43,6 +75,7 @@
 	
 	<div id="main">
 		<div class="bbsdata_list">
+
 			<table width="100%">
 					<tr>
 						<td style="width:80px;height:100%" > 
@@ -57,7 +90,13 @@
 								<dd class="bbsdata_info">
 									<p style="font-size:120%"><?php echo $group_info['group_description']; ?></p>
 									<p><span >老师：<?php echo $group_info['group_tnum']; ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color:rgb(82, 179, 202);">查看所有老师</span></p>				
-									<span >感兴趣：<?php echo $group_info['group_snum']; ?></span>			
+									<p>
+									<span >感兴趣：<?php echo get_group_snum($now_groupid); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp
+									<?php if(is_interest($group_info['group_id'],$now_uid)==0){ ?>
+										<button type="button" onclick="add_int(<?php echo $group_info['group_id']; ?>,<?php echo $now_uid; ?>)" style="  margin: 0px;border: 0px;padding: 0px;width: 50px;display:-webkit-inline-box;  font-size: 13px;font-family: 微软雅黑;background-color:rgb(54, 170, 253);text-shadow:none">关注</button></p>
+									<?php }else{ ?>
+										<button type="button" onclick="del_int(<?php echo $group_info['group_id']; ?>,<?php echo $now_uid; ?>)" style="  margin: 0px;border: 0px;padding: 0px;width: 70px;display:-webkit-inline-box;  font-size: 13px;font-family: 微软雅黑;background-color:rgb(54, 170, 253);text-shadow:none">取消关注</button></p>
+									<?php } ?>
 								</dd>
 							</dl>
 						</td>

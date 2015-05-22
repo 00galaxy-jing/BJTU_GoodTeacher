@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50616
 File Encoding         : 65001
 
-Date: 2015-05-10 13:14:41
+Date: 2015-05-22 11:14:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,12 +29,16 @@ CREATE TABLE `gt_answer` (
   `answer_point_status` int(2) DEFAULT NULL,
   `answer_time` datetime DEFAULT NULL,
   PRIMARY KEY (`answer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gt_answer
 -- ----------------------------
 INSERT INTO `gt_answer` VALUES ('1', '1', '1', '4', '数据库系统——设计实现与管理', '0', '1', '2015-05-04 17:51:41');
+INSERT INTO `gt_answer` VALUES ('2', '1', '2', '2', '数据库系统概论', '0', '0', '2015-05-10 16:13:37');
+INSERT INTO `gt_answer` VALUES ('3', '4', '2', '1', '海天', '0', '0', '2015-05-10 16:16:15');
+INSERT INTO `gt_answer` VALUES ('4', '1', '1', '1', '《数据库系统概论》', '0', '0', '2015-05-21 15:08:58');
+INSERT INTO `gt_answer` VALUES ('5', '2', '2', '1', '东边', '0', '0', '2015-05-22 00:09:52');
 
 -- ----------------------------
 -- Table structure for gt_assess
@@ -111,14 +115,15 @@ CREATE TABLE `gt_problem` (
   `problem_answer` int(11) DEFAULT '0',
   `problem_point_status` int(2) DEFAULT '0',
   PRIMARY KEY (`problem_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gt_problem
 -- ----------------------------
-INSERT INTO `gt_problem` VALUES ('1', '求数据库书籍推荐', '请问学数据库用哪本书比较好', '1', null, '1', '1', '4', '2015-05-04 17:45:50', '1', '1');
-INSERT INTO `gt_problem` VALUES ('2', '逸夫教学楼在哪里', '请问逸夫教学楼在哪里', '2', null, '1', '1', '1', '2015-05-04 17:46:46', '0', '0');
-INSERT INTO `gt_problem` VALUES ('3', '请问该怎么减压', '最近作业好多，压力太大', '3', null, '0', '1', '1', '2015-05-04 17:48:21', '0', '0');
+INSERT INTO `gt_problem` VALUES ('1', '求数据库书籍推荐', '请问学数据库用哪本书比较好', '1', null, '1', '1', '4', '2015-05-04 17:45:50', '2', '1');
+INSERT INTO `gt_problem` VALUES ('2', '逸夫教学楼在哪里', '请问逸夫教学楼在哪里', '2', null, '1', '1', '1', '2015-05-04 17:46:46', '1', '0');
+INSERT INTO `gt_problem` VALUES ('3', '请问该怎么减压', '最近作业好多，压力太大', '3', null, '1', '2', '1', '2015-05-04 17:48:21', '0', '0');
+INSERT INTO `gt_problem` VALUES ('4', '请问哪个考研学习机构比较好', '需要补习数学、英语和政治', '5', null, '1', '2', '3', '2015-05-16 16:15:36', '1', '0');
 
 -- ----------------------------
 -- Table structure for gt_student
@@ -136,12 +141,13 @@ CREATE TABLE `gt_student` (
   `stu_get_good` int(11) DEFAULT '0',
   `stu_regist_time` date NOT NULL,
   PRIMARY KEY (`stu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of gt_student
 -- ----------------------------
-INSERT INTO `gt_student` VALUES ('1', 'galaxy_', '123456', null, '2012', '软件学院', '12301152@bjtu.edu.cn', '1', '0', '2015-05-04');
+INSERT INTO `gt_student` VALUES ('1', 'galaxy_', '123456', 'img/student/galaxy_.jpg', '2012', '软件学院', '12301152@bjtu.edu.cn', '1', '0', '2015-05-04');
+INSERT INTO `gt_student` VALUES ('2', 'krislu', '123456', 'img/student/krislu.jpg', '2012', '软件学院', '1@qq.com', '1', '0', '2015-05-08');
 
 -- ----------------------------
 -- Table structure for gt_stu_interest
