@@ -54,6 +54,20 @@
 		}
 	</style>
 	<script type="text/javascript">
+			function get_data()
+			{
+				$.ajax({
+					url: 'getMessage.php',
+					success: function(data) {
+						document.getElementById('more_m').innerHTML=data;
+					}
+				});
+			}
+
+			setInterval("get_data()",3000);//1秒一次执行
+		</script> 
+
+	<script type="text/javascript">
 		function reply_modal()
 		{
 			document.getElementById("reply_button").style.display="none";
@@ -304,7 +318,7 @@
             <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
           </li>
           <li>
-            <a data-icon="bars" data-theme="a">更多</a>
+            <a data-icon="bars" data-theme="a" id="more_m">更多</a>
           </li>
         </ul>
       </div>

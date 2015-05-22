@@ -1,0 +1,18 @@
+<?php require_once('config/db_config.php'); ?>
+<?php require_once('session/session_unset.php'); ?>
+<?php require_once('session/session.php'); ?>
+<?php
+    //$version = "1.3.3b";
+    //$maxRows = 30;
+    //$tasklevel = 0;
+    mysql_select_db($database_tankdb,$tankdb);
+    //这都是要从session取值的
+    $now_user=$_SESSION['MM_uid'];
+    $now_type=$_SESSION['MM_role'];
+
+    $selSQL = "SELECT * FROM gt_message WHERE mes_to_role=$now_type AND mes_to=$now_user";
+    $RS = mysql_query($selSQL, $tankdb) or die(mysql_error());
+    $num = mysql_num_rows($RS);
+
+    echo $num;
+?>

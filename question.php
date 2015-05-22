@@ -1,3 +1,8 @@
+<?php require_once('config/db_config.php'); ?>
+<?php require_once('session/session_unset.php'); ?>
+<?php require_once('session/session.php'); ?>
+<?php require_once('function/group_function.php'); ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -10,6 +15,9 @@
 
 <body>
   <!-- Page: question  -->
+  <?php 
+      $GroupRS = get_all_group();
+   ?>
   <div id="question" data-role="page">
     <div data-role="header" data-position="fixed" id="qheader" class="header">
       <h3>交大好老师</h3>
@@ -28,10 +36,17 @@
           <div class="ui-field-contain">
             <label for="group">问题分类</label>
             <select name = "group" id="group">
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-              <option value="4">Option 4</option>
+              <?php while($row=mysql_fetch_assoc($GroupRS)){ ?>
+                <option value="<?php echo $row['group_id']; ?>"><?php echo $row['group_name']; ?></option>
+              <?php } ?>
+            </select>
+          </div>
+          <div class="ui-field-contain">
+            <label for="group">指定教师回答</label>
+            <select name = "point" id="point">
+              <?php while($row=mysql_fetch_assoc($GroupRS)){ ?>
+                <option value="<?php echo $row['group_id']; ?>"><?php echo $row['group_name']; ?></option>
+              <?php } ?>
             </select>
           </div>
           <div class="ui-grid-a" style="height:60px">
@@ -40,7 +55,7 @@
               <label for="check">Check</label>
             </div>
             <div class="ui-block-b" style="height:100%">
-              <button type="submit">提交问题</button>
+              <button type="submit" style="  margin-top: 5px;">提交问题</button>
             </div>
           </div>
           <div class="ui-field-contain" id="cancel">

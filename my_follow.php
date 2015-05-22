@@ -18,6 +18,19 @@
 
 <body>
   <!-- Page: me  -->
+  <script type="text/javascript">
+      function get_data()
+      {
+        $.ajax({
+          url: 'getMessage.php',
+          success: function(data) {
+            document.getElementById('more_m').innerHTML=data;
+          }
+        });
+      }
+
+      setInterval("get_data()",3000);//1秒一次执行
+    </script> 
   <div id="me" data-role="page">
     <div data-role="header" data-position="fixed" class="header" id="mheader" data-theme="a">
       <h3>交大好老师</h3>
@@ -41,7 +54,7 @@
             <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a" class="ui-btn-active">我</a>
           </li>
           <li>
-            <a data-icon="bars" data-theme="a">更多</a>
+            <a data-icon="bars" data-theme="a" id="more">更多</a>
           </li>
         </ul>
       </div>
