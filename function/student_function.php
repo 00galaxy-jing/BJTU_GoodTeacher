@@ -100,7 +100,7 @@ function get_my_group($uid){
 
   global $tankdb;
 
-  $selStuAns="SELECT * FROM gt_stu_interest WHERE si_sid=$uid";
+  $selStuAns="SELECT * FROM student_group WHERE si_sid=$uid";
   $GroupRS = mysql_query($selStuAns, $tankdb) or die(mysql_error());
 
   return $GroupRS;
@@ -122,7 +122,7 @@ function get_my_answer($uid){
 
   global $tankdb;
 
-  $selStuAns="SELECT * FROM gt_problem WHERE problem_from=$uid";
+  $selStuAns="SELECT * FROM problem_answer WHERE answer_user=$uid";
   $AnswerRS = mysql_query($selStuAns, $tankdb) or die(mysql_error());
 
   return $AnswerRS;
