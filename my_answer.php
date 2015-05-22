@@ -61,50 +61,16 @@
                         <p style="font-size:15px;color:rgb(8, 150, 211);font-weight:bold"><?php echo $row_pro['problem_title']; ?></p>
                       </a>
                     </dt>
-                    <dd>
-                      <p style="text-align:left"><span>发起时间：</span>
-                      <span><?php echo $row_pro['problem_time']; ?></span></p>
-                        <p style="text-align:left">--------------教师回复-------------</p>
-                    </dd>
                   </dl>     
                 </td>     
               </tr>       
-                      <!--<font class="rpy two_num fl">19</font>-->
-                      <!--<p style="font-size:150%;font-weight:bold;color:#3C3B3B">[学术组]</p>
-                      <p class="clear"></p>-->
-                <?php if($row_pro['problem_point_status']==1) {
-                         $pro_id=$row_pro['problem_id'];
-                         $answer_info = get_answer_info($pro_id);
-                 ?>
-                <tr>
-                  <!--<td style="padding-top:0px;padding-bottom:3px;width:30%" >
-                    <img src="images/shouwei/jobs/my.jpg">
-                  </td>-->
-                  <td style="width:50px;height:100%;padding-top:0px;padding-bottom:3px;vertical-align:top;"  > 
-                    <img src="<?php echo $answer_info['tea_pic']; ?>" width="50px" >
-                  </td>
-                  <td  style="height:100%;padding-top:0px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
-                    <dd>
-                      <p style="color:rgb(33, 177, 219)"><?php echo $answer_info['tea_name']; ?></p>
-                        <p><?php echo $answer_info['answer_content']; ?></p>    
-                    </dd>
-                  </td> 
-                </tr>
-              <?php }else {?>
-                  <td>
-                    <p style="  text-align: left;margin-left:24%">暂无老师回复</p>
-                  </td>
-              <?php }?>
             </table>  
           </div>
-
-            
-            <div style="width: 100%;
-                  padding: 1px 0px;
-                    border-bottom: 1px solid #dcdcdc;">
-            </div>
-
-            <?php } ?>
+          <div style="width: 100%;
+                padding: 1px 0px;
+                  border-bottom: 1px solid #dcdcdc;">
+          </div>
+        <?php } ?>
     </div>
     <div data-position="fixed" data-role="footer">
       <div data-role="navbar">

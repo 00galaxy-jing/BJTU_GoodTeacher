@@ -13,7 +13,8 @@
   $now_type=$_SESSION['MM_role'];
 
   //调用function
-
+  $user_info = get_student_info($stu_id);
+  $GroupRS = get_my_group($stu_id);
 ?>
 
 <!DOCTYPE html>
@@ -44,12 +45,47 @@
       setInterval("get_data()",3000);//1秒一次执行
     </script> 
   <!-- Page: me  -->
+
   <div id="me" data-role="page">
     <div data-role="header" data-position="fixed" class="header" id="mheader" data-theme="a">
       <h3>交大好老师</h3>
     </div>
     <div role="main" class="ui-content">
-         
+        <?php while($group_info = mysql_fetch_array($GroupRS)) {?>
+         <table width="100%">
+          <tr>
+            <td style="width:80px;height:100%" > 
+              <img src="<?php echo $group_info['group_pic']; ?>" width="80px"  >
+            </td>
+            <td>
+              <dl>
+                <dt>
+                  <p style="font-size:150%;font-weight:bold;color:#3C3B3B">[<?php echo $group_info['group_name']; ?>]</p>
+                  <p class="clear"></p>
+                </dt>
+                <dd class="bbsdata_info">
+                  <p style="font-size:120%"><?php echo $group_info['group_description']; ?></p>
+                  <p><span >老师：<?php echo $group_info['group_tnum']; ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color:rgb(82, 179, 202);">查看所有老师</span></p>       
+                  <p>
+                  <span id="have_int">感兴趣：<?php echo get_group_snum($now_groupid); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp
+                  <?php if($now_role==2){ ?>
+                    <?php if(is_interest($group_info['group_id'],$now_uid)==0){ ?>
+                      <button type="button" onclick="add_int(<?php echo $group_info['group_id']; ?>,<?php echo $now_uid; ?>)" style="  margin: 0px;border: 0px;padding: 0px;width: 50px;display:-webkit-inline-box;  font-size: 13px;font-family: 微软雅黑;background-color:rgb(54, 170, 253);text-shadow:none">关注</button></p>
+                    <?php }else{ ?>
+                      <button type="button" onclick="del_int(<?php echo $group_info['group_id']; ?>,<?php echo $now_uid; ?>)" style="  margin: 0px;border: 0px;padding: 0px;width: 70px;display:-webkit-inline-box;  font-size: 13px;font-family: 微软雅黑;background-color:rgb(54, 170, 253);text-shadow:none">取消关注</button></p>
+                    <?php } ?>
+                  <?php } ?>
+                </dd>
+              </dl>
+            </td>
+          </tr>
+
+      </table>
+      <div style="width: 100%;
+              padding: 1px 0px;
+                border-bottom: 1px solid #dcdcdc;">
+      </div>
+      <?php } ?>
     </div>
     <div data-position="fixed" data-role="footer">
       <div data-role="navbar">
