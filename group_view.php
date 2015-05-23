@@ -25,10 +25,6 @@
 
 <head> 
 	<?php require('header.php');?>
-	<!--
-	<script language="javascript">
-		if (top.location != location) top.location.href = location.href;
-	</script>-->
 </head>
 
 <body>	
@@ -57,16 +53,6 @@
 	                        else;
                         }
                  });
-			
-			//window.location.href="assist.php";
-			//history.go(0);
-			//window.location.href=window.location.href;		
-			/*var ihtml = document.getElementById('have_int').innerHTML;
-			var r = ihtml.split('：');
-			var num = parseInt(r[1])+1;
-			var nhtml = "感兴趣："+num;
-			//alert(nhtml);
-			document.getElementById('have_int').innerHTML = nhtml;*/
 			window.location.reload(true);
 		}
 		function del_int(gid,uid)
@@ -80,16 +66,7 @@
 	                        else;
                         }
                  });
-			//window.top.location.reload(true);
-			/*var ihtml2 = document.getElementById('have_int').innerHTML;
-			var r2 = ihtml2.split('：');
-			var num2 = parseInt(r2[1])-1;
-			var nhtml2 = "感兴趣："+num2;
-			//alert(nhtml2);
-			document.getElementById('have_int').innerHTML = nhtml2;*/
 			window.location.reload();
-			//window.location.href="group_view.php?gid="+gid;
-			//window.location.href="assist.php";
 		}
 		function myrefresh()
 		{
@@ -170,17 +147,11 @@
 							</dl>			
 						</td>			
 					</tr>				
-									<!--<font class="rpy two_num fl">19</font>-->
-									<!--<p style="font-size:150%;font-weight:bold;color:#3C3B3B">[学术组]</p>
-									<p class="clear"></p>-->
 				    <?php if($row_pro['problem_point_status']==1) {
 				    	       $pro_id=$row_pro['problem_id'];
 				    	       $answer_info = get_answer_info($pro_id);
 				     ?>
 						<tr>
-							<!--<td style="padding-top:0px;padding-bottom:3px;width:30%" >
-								<img src="images/shouwei/jobs/my.jpg">
-							</td>-->
 							<td style="width:50px;height:100%;padding-top:0px;padding-bottom:3px;vertical-align:top;"  > 
 								<img src="<?php echo $answer_info['tea_pic']; ?>" width="50px" >
 							</td>
@@ -198,23 +169,17 @@
 					<?php }?>
 				</table>	
 			</div>
-
-				
 				<div style="width: 100%;
 							padding: 1px 0px;
 								border-bottom: 1px solid #dcdcdc;">
 				</div>
-
 				<?php } ?>
 
 		</div>
 	</div>
 
 	<div id="foot">
-		<!--<a class="font13  mr12 c64" title="电脑版" href="../www.paidai.com/?id=1_2F">电脑版</a>
-		<a class="font13  mr12 c64" title="触屏版" href="shouji">触屏版</a>
-        		<a href="login.html" title="登录" class="font13 mr12 c64">登&nbsp;录</a>-->
-			<p style="font-size: 9px;text-align:center">Copyright ©2015 BJTU</p>
+		<p style="font-size: 9px;text-align:center">Copyright ©2015 BJTU</p>
 	</div>
 
 <!-- 底下的固定菜单栏-->
@@ -231,7 +196,13 @@
             <a href="question.php" data-icon="edit" data-theme="a">提问</a>
           </li>
           <li>
+           <?php 
+          		if ($_SESSION['MM_role']===2) {
+          	?>
             <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
+         <?php }else{?>
+         	<a href="me_teacher.php?tid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
+         <?php } ?>
           </li>
           <li>
             <a data-icon="bars" data-theme="a" id="more_m">更多</a>

@@ -41,12 +41,8 @@
 
 			setInterval("get_data()",3000);//1秒一次执行
 		</script> 
-   		<div style="height:100px"data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
+   		<div data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
 	      <h3>交大好老师</h3>
-	      <div class="ui-field-contain" data-position="fixed">
-	        <label for="search"></label>
-	        <input type="search" name id="search" data-mini="false" data-clear-btn="true" placeholder="搜索">
-	      </div>
     	</div>
 
         <div id="active_br"></div>        

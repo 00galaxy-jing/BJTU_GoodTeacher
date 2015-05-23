@@ -7,9 +7,6 @@
   <link href="./js/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
   <script src="./js/jquery-1.9.1.min.js"></script>
   <script src="./js/jquery.mobile-1.4.5.min.js"></script>
-  <!-- Uncomment the following to include cordova in your android project -->
-  <!--<script src="//ezoui.com/platforms/android/cordova.js"></script>-->
-  <!-- Export JS  -->
   <script>
     /*** code gen by capture-photo  ***/
     $(document).on("gkComponentsReady", function () {

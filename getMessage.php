@@ -2,9 +2,6 @@
 <?php require_once('session/session_unset.php'); ?>
 <?php require_once('session/session.php'); ?>
 <?php
-    //$version = "1.3.3b";
-    //$maxRows = 30;
-    //$tasklevel = 0;
     mysql_select_db($database_tankdb,$tankdb);
     //这都是要从session取值的
     $now_user=$_SESSION['MM_uid'];

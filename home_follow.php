@@ -41,12 +41,8 @@
 
 			setInterval("get_data()",3000);//1秒一次执行
 		</script> 
-	<div style="height:100px"data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
+	<div data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
 	      <h3>交大好老师</h3>
-	      <div class="ui-field-contain" data-position="fixed">
-	        <label for="search"></label>
-	        <input type="search" name id="search" data-mini="false" data-clear-btn="true" placeholder="搜索">
-	      </div>
     	</div>
         <div id="active_br"></div>        
 
@@ -137,16 +133,6 @@
         
 
     <div class="nav">
-
-	<!--<a class="black bold c96 font14 fl nav_list b25" href="home.html" title="首页">首页</a>
-
-	<a class=" c96 font14 fl nav_list b25" href="index.html" title="论坛">论坛</a>
-
-	<a class=" c96 font14 fl nav_list b25" href="bbs.html" title="商道">商道</a>
-
-	<a class=" c96 font14 fl nav_list b25"  href="event.html" title="活动">活动</a>
-
-	<a class=" c96 font14 fl nav_list b25 last"  href="jobs.html" title="招聘">招聘</a>-->
 	<a class="c96 font14 fl nav_list b25" href="home.php" style="color:black;font-weight:500" title="我的兴趣">我的兴趣</a>
 	<a class="black bold c96 font14 fl nav_list b25" href="home_follow.php" style="color:black;" title="我的关注">我的关注</a>
 
@@ -164,10 +150,6 @@
 
 			<table width="100%">
 				<tr>
-					<!--<td style="padding-top:0px;padding-bottom:3px;width:30%" >
-						<img src="images/shouwei/jobs/my.jpg">
-					</td>-->
-
 					<td  style="height:100%;padding-top:5px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
 						<dd>
 							<span style="color:rgb(33, 177, 219)"><?php echo $row_follow['tea_name']; ?></span>&nbsp
@@ -199,17 +181,9 @@
 				<!--列表结束-->
 	    <div class="clear"></div>
 	</div>
-			<!--<div id="more" class="mt10">
-        <a class="more fl font14 c64"  href="home.html?act=index&page=2">更&nbsp;多</a>
-        <p class="clear"></p>
-    </div>
-		<div class="clear"></div>-->
 </div>
 <!--尾部-->
 <div id="foot">
-		<!--<a class="font13  mr12 c64" title="电脑版" href="../www.paidai.com/?id=1_2F">电脑版</a>
-		<a class="font13  mr12 c64" title="触屏版" href="shouji">触屏版</a>
-        		<a href="login.html" title="登录" class="font13 mr12 c64">登&nbsp;录</a>-->
 			<p style="font-size: 9px;text-align:center">Copyright ©2015 BJTU</p>
 	<div class="foot_right fr" style="margin-right: 2%;">
 		<a class="font13 fr c64 to_top" title="回顶部" href="#top">顶部</a>
@@ -230,7 +204,13 @@
             <a href="question.php" data-icon="edit" data-theme="a">提问</a>
           </li>
           <li>
+          	<?php 
+          		if ($_SESSION['MM_role']===2) {
+          	?>
             <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
+         <?php }else{?>
+         	<a href="me_teacher.php?tid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
+         <?php } ?>
           </li>
           <li>
             <a data-icon="bars" data-theme="a" id="more_m">更多</a>

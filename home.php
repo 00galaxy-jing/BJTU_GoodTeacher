@@ -28,12 +28,8 @@
 
 <body>	
 	
-		<div style="height:100px"data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
+		<div data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
 	      <h3>交大好老师</h3>
-	      <div class="ui-field-contain" data-position="fixed">
-	        <label for="search"></label>
-	        <input type="search" name id="search" data-mini="false" data-clear-btn="true" placeholder="搜索">
-	      </div>
     	</div>
         <div id="active_br"></div>  
         <script type="text/javascript">
@@ -137,16 +133,6 @@
         
 
     <div class="nav">
-
-	<!--<a class="black bold c96 font14 fl nav_list b25" href="home.html" title="首页">首页</a>
-
-	<a class=" c96 font14 fl nav_list b25" href="index.html" title="论坛">论坛</a>
-
-	<a class=" c96 font14 fl nav_list b25" href="bbs.html" title="商道">商道</a>
-
-	<a class=" c96 font14 fl nav_list b25"  href="event.html" title="活动">活动</a>
-
-	<a class=" c96 font14 fl nav_list b25 last"  href="jobs.html" title="招聘">招聘</a>-->
 	<a class="black bold c96 font14 fl nav_list b25" href="home.php" style="color:black;" title="我的兴趣">我的兴趣</a>
 	<a class=" c96 font14 fl nav_list b25" href="home_follow.php" style="color:black;font-weight:500" title="我的关注">我的关注</a>
 
@@ -191,49 +177,13 @@
 				</div>
 		<?php }?>
 		<a style="font-size:15px" href="all_group.php">查看所有兴趣组</a>
-		<!--<table width="100%">
-			<tr>
-				<td style="width:80px;height:100%;" > 
-					<img src="image/jobs/my.jpg" width="80px"  >
-				</td>
-				<td >
-				<img src="images/shouwei/jobs/my.jpg" width="70%">
-					<dl>
-						<dt>
-							<font class="rpy two_num fl">19</font>
-							<p style="font-size:150%;font-weight:bold;color:#3C3B3B">[后勤组]</p>
-							<p class="clear"></p>
-						</dt>
-						<dd class="bbsdata_info">
-							<p style="font-size:120%">为您提供校园生活的各项信息</p>
-							<span >老师：21</span>&nbsp&nbsp			
-							<span >感兴趣：100</span>			
-						</dd>
-					</dl>
-				</td>
-			</tr>
 
-		</table>
-		<div style="width: 100%;
-					padding: 1px 0px;
-						border-bottom: 1px solid #dcdcdc;">
-		</div>-->
-
-				
 				<!--列表结束-->
 	    <div class="clear"></div>
 	</div>
-			<!--<div id="more" class="mt10">
-        <a class="more fl font14 c64"  href="home.html?act=index&page=2">更&nbsp;多</a>
-        <p class="clear"></p>
-    </div>
-		<div class="clear"></div>-->
 </div>
 <!--尾部-->
 <div id="foot">
-		<!--<a class="font13  mr12 c64" title="电脑版" href="../www.paidai.com/?id=1_2F">电脑版</a>
-		<a class="font13  mr12 c64" title="触屏版" href="shouji">触屏版</a>
-        		<a href="login.html" title="登录" class="font13 mr12 c64">登&nbsp;录</a>-->
 			<p style="font-size: 9px;text-align:center">Copyright ©2015 BJTU</p>
 	<div class="foot_right fr" style="margin-right: 2%;">
 		<a class="font13 fr c64 to_top" title="回顶部" href="#iheader">顶部</a>
@@ -270,4 +220,3 @@
     </div>
 </body>
 </html> 
-<!--<script type="text/javascript">/*20:3 创建于 2014-12-26*/var cpro_id = "u1879755";</script><script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>	-->
