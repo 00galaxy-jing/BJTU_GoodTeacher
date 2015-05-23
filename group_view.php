@@ -73,16 +73,13 @@
 		//window.location.reload();
 		history.go(0);
 		}
-		//setTimeout('myrefresh()',5000); //马上跳转
-
 	</script>
 				<!--数据库操作部分-->
 			<?php 
 				$group_info = get_group_info($now_groupid);
 				$problem_infoRS = get_pro_info($now_groupid);
-				//echo $group_info['group_snum'];
 			?> 
-	<div style="height:40px"data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
+	<div data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
 	      <button type="button" onClick="javascript:history.go(-1);">返回</button>
 	      <h3>交大好老师</h3>
     </div>

@@ -224,9 +224,6 @@
 </div>
 <!--尾部-->
 <div id="foot">
-		<!--<a class="font13  mr12 c64" title="电脑版" href="../www.paidai.com/?id=1_2F">电脑版</a>
-		<a class="font13  mr12 c64" title="触屏版" href="shouji">触屏版</a>
-        		<a href="login.html" title="登录" class="font13 mr12 c64">登&nbsp;录</a>-->
 			<p style="font-size: 9px;text-align:center">Copyright ©2015 BJTU</p>
 	<div class="foot_right fr" style="margin-right: 2%;">
 		<a class="font13 fr c64 to_top" title="回顶部" href="#top">顶部</a>
@@ -265,4 +262,4 @@
       </div>
     </div>
 </body>
-</html> <!--<script type="text/javascript">/*20:3 创建于 2014-12-26*/var cpro_id = "u1879755";</script><script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>	-->
+</html> 

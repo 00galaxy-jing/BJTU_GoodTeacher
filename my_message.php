@@ -128,7 +128,13 @@
             <a href="question.php" data-icon="edit" data-theme="a">提问</a>
           </li>
           <li>
+          	<?php 
+          		if ($_SESSION['MM_role']===2) {
+          	?>
             <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
+         <?php }else{?>
+         	<a href="me_teacher.php?tid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
+         <?php } ?>
           </li>
           <li>
             <a data-icon="bars" data-theme="a" id="more_m">更多</a>

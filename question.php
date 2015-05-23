@@ -30,8 +30,7 @@
           </div>
           <div class="ui-field-contain">
             <label for="description">问题描述</label>
-            <textarea id="description" name="description" placeholder="（不少于50字）">
-            </textarea>
+            <textarea id="description" name="description" placeholder="（不少于50字）"></textarea>
           </div>
           <div class="ui-field-contain">
             <label for="group">问题分类</label>

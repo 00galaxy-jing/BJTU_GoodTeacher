@@ -49,13 +49,14 @@
   <div id="me" data-role="page">
     <div data-role="header" data-position="fixed" class="header" id="mheader" data-theme="a">
       <h3>交大好老师</h3>
+       <button type="button" onClick="javascript:history.go(-1);">返回</button>
     </div>
     <div role="main" class="ui-content">
          <!-- 列表开始 -->
           <?php while($row_pro = mysql_fetch_array($InterestRS)) {?>
           <div data-role="content">
             <ul data-role="listview" data-inset="true">
-              <li><a href="home.php"><img src="<?php echo $row_pro['tea_pic'];?>" alt=""><?php echo $row_pro['tea_name']?></a></li>
+              <li><a href="me_teacher.php?tid=<?php echo $row_pro['st_tid'];?>"><img src="<?php echo $row_pro['tea_pic'];?>" alt=""><?php echo $row_pro['tea_name']?></a></li>
             </ul>
           </div>
           <?php }?>
@@ -74,7 +75,13 @@
             <a href="question.php" data-icon="edit" data-theme="a">提问</a>
           </li>
           <li>
-            <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a" class="ui-btn-active">我</a>
+            <?php 
+              if ($_SESSION['MM_role']===2) {
+            ?>
+            <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
+         <?php }else{?>
+          <a href="me_teacher.php?tid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
+         <?php } ?>
           </li>
           <li>
             <a data-icon="bars" data-theme="a" id="more">更多</a>

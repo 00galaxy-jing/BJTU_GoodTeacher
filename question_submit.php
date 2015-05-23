@@ -20,9 +20,11 @@
 		$sql = "insert into gt_problem (problem_title, problem_description, problem_group, problem_from, problem_time, problem_private) values ('$title', '$description','$group', '$user', now(), 0)";
 	}
 	$rs=mysql_query($sql); //执行sql查询
+
 	if($rs){
 		echo "alert['问题提交成功']";
-		header("location:home.php");//正常应该跳转到这个问题的detail
+		header("location:home.php");//跳转过去还在一直运行？不停getmessage.php，不造为啥啊
+		exit;
 	}else{
 		echo "alert['问题提交失败，请重试！']";
 }

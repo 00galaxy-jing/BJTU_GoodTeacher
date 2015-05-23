@@ -41,12 +41,8 @@
 
 			setInterval("get_data()",3000);//1秒一次执行
 		</script> 
-   		<div style="height:100px"data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
+   		<div data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
 	      <h3>交大好老师</h3>
-	      <div class="ui-field-contain" data-position="fixed">
-	        <label for="search"></label>
-	        <input type="search" name id="search" data-mini="false" data-clear-btn="true" placeholder="搜索">
-	      </div>
     	</div>
 
         <div id="active_br"></div>        
@@ -149,7 +145,6 @@
 <div class="nav_sec">
 	<a class="c96 fl " href="hot_recom.php" title="全部"  style="color:black;font-weight:500">全部</a>
 	<a class="c96 fl c_green navSec_firList" href="hot_week.php" title="一周">一周</a>
-	<!--<a class="c96 fl " href="index.html?act=gan" title="干货">干货</a>-->
 	<p class="clear"></p>
 </div>
 
@@ -252,8 +247,14 @@
             <a href="question.php" data-icon="edit" data-theme="a">提问</a>
           </li>
           <li>
+           		<?php 
+          		if ($_SESSION['MM_role']===2) {
+          	?>
             <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
-          </li>
+         <?php }else{?>
+         	<a href="me_teacher.php?tid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
+         <?php } ?> 
+           </li>
           <li>
             <a data-icon="bars" data-theme="a" id="more_m">更多</a>
           </li>
