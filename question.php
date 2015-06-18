@@ -43,7 +43,7 @@
           <div class="ui-field-contain">
             <label for="group">指定教师回答</label>
             <select name = "point" id="point">
-              <?php while($row=mysql_fetch_assoc($GroupRS)){ ?>
+<?php while($row=mysql_fetch_assoc($GroupRS)){ ?>
                 <option value="<?php echo $row['group_id']; ?>"><?php echo $row['group_name']; ?></option>
               <?php } ?>
             </select>
