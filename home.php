@@ -185,9 +185,7 @@
 <!--尾部-->
 <div id="foot">
 			<p style="font-size: 9px;text-align:center">Copyright ©2015 BJTU</p>
-	<div class="foot_right fr" style="margin-right: 2%;">
-		<a class="font13 fr c64 to_top" title="回顶部" href="#iheader">顶部</a>
-	</div>
+	
 </div>
 
     <!-- 底下的固定菜单栏-->

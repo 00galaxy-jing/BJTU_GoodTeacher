@@ -232,9 +232,7 @@
 		<a class="font13  mr12 c64" title="触屏版" href="shouji">触屏版</a>
         		<a href="login.html" title="登录" class="font13 mr12 c64">登&nbsp;录</a>-->
 			<p style="font-size: 9px;text-align:center">Copyright ©2015 BJTU</p>
-	<div class="foot_right fr" style="margin-right: 2%;">
-		<a class="font13 fr c64 to_top" title="回顶部" href="#top">顶部</a>
-	</div>
+
 </div>
 
 </div>
@@ -243,13 +241,21 @@
       <div data-role="navbar" data-position="fixed">
         <ul>
           <li>
-            <a href="home.php" data-icon="home"  data-theme="a">动态</a>
+            <?php if($now_type == 2) {?>
+            	<a href="home.php" data-icon="home"  data-theme="a">动态</a>
+            <?php } else {?>
+            	<a href="teacher_home.php" data-icon="home"  data-theme="a">动态</a>
+            <?php }?>
           </li>
           <li>
             <a href="hot_recom.php" rel="external" class="ui-btn-active" data-icon="star" data-theme="a">发现</a>
           </li>
           <li>
-            <a href="question.php" data-icon="edit" data-theme="a">提问</a>
+            <?php if($now_type == 2) {?>
+           		<a href="question.php" data-icon="edit" data-theme="a">提问</a>
+           	<?php } else {?>
+           		<a href="teacher_need_me.php" data-icon="edit"  data-theme="a">回答</a>
+           	<?php }?>
           </li>
           <li>
            		<?php 

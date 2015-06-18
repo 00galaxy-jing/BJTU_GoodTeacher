@@ -3,6 +3,7 @@
 <?php require_once('session/session.php'); ?>
 <?php require_once('function/teacher_function.php'); ?>
 <?php require_once('function/message_function.php'); ?>
+<?php require_once('function/teacher_group_function.php'); ?>
 
 <?php 
   //初始化
@@ -20,6 +21,7 @@
 
   //调用function
   $user_info = get_teacher_info($tea_id);
+  $tea_groupRS =get_my_group($tea_id) ;
 ?>
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -64,19 +66,35 @@
         <p>所属院系：<?php echo $user_info['tea_major'] ?></p>
         <p>邮箱：<?php echo $user_info['tea_mail'] ?></p>
         <p>电话：<?php echo $user_info['tea_tel'] ?></p>
-        <p>个人简介：<?php echo $user_info['tea_intro'] ?></p>
-       </div>
+        <p>&nbsp</p>
+        <p>所属兴趣组</p>
+        <?php while($row = mysql_fetch_assoc($tea_groupRS)) {?>
+            <a href="group_view.php?gid=<?php echo $row['group_id']; ?>"><p> <?php echo $row['group_name']; ?> </p></a>
+        <?php } ?>
+    </div>
     <div data-position="fixed" data-role="footer">
       <div data-role="navbar">
         <ul>
           <li>
-            <a href="home.php" data-icon="home" data-theme="a">动态</a>
+            <?php 
+              if ($_SESSION['MM_role']===2) {
+            ?>
+              <a href="home.php" data-icon="home" data-theme="a">动态</a>
+            <?php }else{?>
+              <a href="teacher_home.php" data-icon="home" data-theme="a">动态</a>
+            <?php } ?>
           </li>
           <li>
             <a href="hot_recom.php" data-icon="star" data-theme="a">发现</a>
           </li>
           <li>
-            <a href="question.php" data-icon="edit" data-theme="a">提问</a>
+            <?php 
+              if ($_SESSION['MM_role']===2) {
+            ?>
+               <a href="question.php" data-icon="edit" data-theme="a">提问</a>
+           <?php }else{?>
+               <a href="teacher_need_me.php" data-icon="edit" data-theme="a">回答</a>
+           <?php } ?>
           </li>
           <li>
             <?php 
@@ -84,11 +102,11 @@
             ?>
             <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
          <?php }else{?>
-          <a href="me_teacher.php?tid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
+          <a href="me_teacher.php?tid=<?php echo $now_uid ?>" data-icon="user" data-theme="a" class="ui-btn-active" >我</a>
          <?php } ?>
            </li>
           <li>
-            <a data-icon="bars" data-theme="a" id="more_m">更多</a>
+            <a data-icon="bars" data-theme="a" id="more_m">消息</a>
           </li>
         </ul>
       </div>
@@ -121,6 +139,7 @@
     min-height:100%; text-align:center;
     }
     .ui-content p{
+        font-size: 15px;
         margin: 3px;
         font-family: "微软雅黑";
         text-align:center;

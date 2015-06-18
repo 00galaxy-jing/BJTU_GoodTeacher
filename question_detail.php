@@ -315,13 +315,21 @@
       <div data-role="navbar" data-position="fixed">
         <ul>
           <li>
-            <a href="home.php" data-icon="home"   data-theme="a">动态</a>
+           <?php if($now_type == 2) {?>
+            	<a href="home.php" data-icon="home"  data-theme="a">动态</a>
+            <?php } else {?>
+            	<a href="teacher_home.php" data-icon="home"  data-theme="a">动态</a>
+            <?php }?>
           </li>
           <li>
             <a href="hot_recom.php" rel="external" data-icon="star" data-theme="a">发现</a>
           </li>
           <li>
-            <a href="question.php" data-icon="edit" data-theme="a">提问</a>
+            <?php if($now_type == 2) {?>
+           		<a href="question.php" data-icon="edit" data-theme="a">提问</a>
+           	<?php } else {?>
+           		<a href="teacher_need_me.php" data-icon="edit"  data-theme="a">回答</a>
+           	<?php }?>
           </li>
           <li>
           	<?php 

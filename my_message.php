@@ -41,7 +41,7 @@
 				});
 			}
 
-			setInterval("get_data()",3000);//1秒一次执行
+			setTimeout("get_data()",3000);//1秒一次执行
 		</script> 
 	<div style="height:100px"data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
 	      <h3>交大好老师</h3>
@@ -109,9 +109,6 @@
 		<a class="font13  mr12 c64" title="触屏版" href="shouji">触屏版</a>
         		<a href="login.html" title="登录" class="font13 mr12 c64">登&nbsp;录</a>-->
 			<p style="font-size: 9px;text-align:center">Copyright ©2015 BJTU</p>
-	<div class="foot_right fr" style="margin-right: 2%;">
-		<a class="font13 fr c64 to_top" title="回顶部" href="#top">顶部</a>
-	</div>
 </div>
 
 <!-- 底下的固定菜单栏-->

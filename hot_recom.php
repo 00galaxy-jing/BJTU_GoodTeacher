@@ -226,9 +226,9 @@
 <!--尾部-->
 <div id="foot">
 			<p style="font-size: 9px;text-align:center">Copyright ©2015 BJTU</p>
-	<div class="foot_right fr" style="margin-right: 2%;">
+	<!--<div class="foot_right fr" style="margin-right: 2%;">
 		<a class="font13 fr c64 to_top" title="回顶部" href="#top">顶部</a>
-	</div>
+	</div>-->
 </div>
 
 </div>
@@ -254,7 +254,13 @@
            	<?php }?>
           </li>
           <li>
-            <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
+            <?php 
+          		if ($_SESSION['MM_role']===2) {
+          	?>
+            	<a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
+         	<?php }else{?>
+         		<a href="me_teacher.php?tid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
+         	<?php } ?>
           </li>
           <li>
             <a data-icon="bars" data-theme="a" id="more_m">消息</a>

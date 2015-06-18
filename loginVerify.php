@@ -31,13 +31,14 @@ $num=mysql_num_rows($rs); //获取记录数
 			    	$_SESSION['MM_uid'] = $row['stu_id'];
 			    	$user=$_SESSION['MM_uid'];
 			    	$_SESSION['MM_role'] = 2;
+			    	$GOTO = "home.php";
 			    }
 			    else
 			    {
 			    	$_SESSION['MM_uid'] = $row['tea_id'];
 			    	$_SESSION['MM_role'] = 1;
+			    	$GOTO = "teacher_home.php";
 			    }
-			    $GOTO = "home.php";
 		    }else{
 				 //echo "密码不正确";
 				 //echo "<a href='user_login.php'>返回登陆页面</a>";
@@ -51,5 +52,5 @@ $num=mysql_num_rows($rs); //获取记录数
 		//重定向
 		// header("Location: ".$GOTO);
 		mysql_close($tankdb);
-		header("Location: home.php");
+		header("Location: ".$GOTO);
 ?>

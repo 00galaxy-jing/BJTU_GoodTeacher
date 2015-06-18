@@ -140,7 +140,13 @@
       <div data-role="navbar">
         <ul>
           <li>
-            <a href="home.php" data-icon="home" data-theme="a">动态</a>
+             <?php 
+              if ($_SESSION['MM_role']===2) {
+            ?>
+              <a href="home.php" data-icon="home" data-theme="a">动态</a>
+            <?php }else{?>
+              <a href="teacher_home.php" data-icon="home" data-theme="a">动态</a>
+            <?php } ?>
           </li>
           <li>
             <a href="hot_recom.php" data-icon="star" data-theme="a">发现</a>
@@ -152,7 +158,7 @@
             <?php 
               if ($_SESSION['MM_role']===2) {
             ?>
-            <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
+            <a href="me_student.php?sid=<?php echo $now_uid ?>" data-icon="user" data-theme="a" class="ui-btn-active" >我</a>
          <?php }else{?>
           <a href="me_teacher.php?tid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
          <?php } ?>  
