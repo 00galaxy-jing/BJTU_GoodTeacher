@@ -43,4 +43,14 @@ function get_teacher_info($uid){
 
   return $tea_info;
 }
+
+//获取全部老师
+function get_all_teachers(){
+  global $tankdb;
+
+  $selTeaInfo="SELECT * FROM gt_teacher";
+  $TeaRS = mysql_query($selTeaInfo, $tankdb) or die(mysql_error());
+
+  return $TeaRS;
+}
 ?>

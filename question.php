@@ -2,6 +2,7 @@
 <?php require_once('session/session_unset.php'); ?>
 <?php require_once('session/session.php'); ?>
 <?php require_once('function/group_function.php'); ?>
+<?php require_once('function/teacher_function.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -17,6 +18,7 @@
   <!-- Page: question  -->
   <?php 
       $GroupRS = get_all_group();
+      $TeacherRS = get_all_teachers();
    ?>
   <div id="question" data-role="page">
     <div data-role="header" data-position="fixed" id="qheader" class="header">
@@ -43,15 +45,15 @@
           <div class="ui-field-contain">
             <label for="group">指定教师回答</label>
             <select name = "point" id="point">
-              <?php while($row=mysql_fetch_assoc($GroupRS)){ ?>
-                <option value="<?php echo $row['group_id']; ?>"><?php echo $row['group_name']; ?></option>
+              <?php while($row1=mysql_fetch_assoc($TeacherRS)){ ?>
+                <option value="<?php echo $row1['tea_id']; ?>"><?php echo $row1['tea_name']; ?></option>
               <?php } ?>
             </select>
           </div>
           <div class="ui-grid-a" style="height:60px">
             <div class="ui-block-a" style="height:100%">
               <input id="check" name="check" type="checkbox">
-              <label for="check">Check</label>
+              <label for="check">匿名</label>
             </div>
             <div class="ui-block-b" style="height:100%">
               <button type="submit" style="  margin-top: 5px;">提交问题</button>

@@ -9,18 +9,22 @@
 	$description=$_POST['description'];
 	$group=$_POST['group'];
 	$check=$_POST['check'];
-	//$user="user";//换成session获取的值
+	$point=$_POST['point'];
 	$user=$_SESSION['MM_uid'];
+	$role=$_SESSION['MM_role'];
 
-	$sql = "insert into gt_problem (problem_title, problem_description, problem_group) values ('$title', '$description','$group')";
+	$sql = "insert into gt_problem (problem_from, problem_to, problem_title, problem_description, problem_group) values ('$user','$point','$title', '$description','$group')";
 
 	if($check==='on'){
-		$sql = "insert into gt_problem (problem_title, problem_description, problem_group, problem_private, problem_time) values ('$title', '$description','$group', 1, now())";
+		$sql = "insert into gt_problem (problem_from, problem_to, problem_title, problem_description, problem_group, problem_private, problem_time) values ('$user','$point','$title', '$description','$group', 1, now())";
 	}else{
-		$sql = "insert into gt_problem (problem_title, problem_description, problem_group, problem_from, problem_time, problem_private) values ('$title', '$description','$group', '$user', now(), 0)";
+		$sql = "insert into gt_problem (problem_from, problem_to, problem_title, problem_description, problem_group, problem_from, problem_time, problem_private) values ('$user','$point','$title', '$description','$group', '$user', now(), 0)";
 	}
 	$rs=mysql_query($sql); //执行sql查询
-
+	$insertId = mysql_insert_id();
+	$sql1 = "insert into gt_message (mes_from, mes_from_role, mes_to, mes_to_role, mes_type, mes_pid, mes_time, mes_content) values ('$user','$role','$point', 1, '$check','$insertId', now(), '您被指定回答问题')";
+	$rs1=mysql_query($sql1);//将问题插入消息列表
+	
 	if($rs){
 		echo "alert['问题提交成功']";
 		header("location:home.php");//跳转过去还在一直运行？不停getmessage.php，不造为啥啊
