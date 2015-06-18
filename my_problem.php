@@ -131,7 +131,7 @@
          <?php } ?>
           </li>
           <li>
-            <a data-icon="bars" data-theme="a" id="more_m">更多</a>
+            <a href="my_message.php" data-icon="bars" data-theme="a" id="more_m">更多</a>
           </li>
         </ul>
       </div>

@@ -42,6 +42,7 @@
 			setInterval("get_data()",3000);//1秒一次执行
 		</script> 
 		<div data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
+	      <button type="button" onClick="javascript:history.go(-1);" style="  height: 30px;">返回</button>
 	      <h3>交大好老师</h3>
     	</div>
         <div id="active_br"></div>        
@@ -202,7 +203,7 @@
          	<a href="me_teacher.php?tid=<?php echo $now_uid ?>" data-icon="user" data-theme="a">我</a>
          <?php } ?></li>
           <li>
-            <a data-icon="bars" data-theme="a" id="more_m">更多</a>
+            <a href="my_message.php" data-icon="bars" data-theme="a" id="more_m">更多</a>
           </li>
         </ul>
       </div>

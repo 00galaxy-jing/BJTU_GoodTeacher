@@ -73,35 +73,35 @@
           <ul data-role="listview" data-inset="true">
             <li>
               <a href="my_group.php?sid=<?php echo $now_uid ?>">
-              <img src="./img/student/krislu.jpg" class="ui-li-icon">
+              
                   我关注的分组
                   <span class="ui-li-count"><?php echo $my_interest; ?></span>
               </a>
             </li>
             <li>
               <a href="my_interest.php?sid=<?php echo $now_uid ?>">
-                  <img src="./img/student/krislu.jpg" class="ui-li-icon" >
+                
                   我关注的老师
                   <span class="ui-li-count"><?php echo $my_follow; ?></span>
               </a>
             </li>
             <li>
               <a href="my_problem.php?sid=<?php echo $now_uid ?>">
-                  <img src="./img/student/krislu.jpg" class="ui-li-icon">
+                  
                   我的问题
                   <span class="ui-li-count"><?php echo $my_problem; ?></span>
               </a>
             </li>
             <li>
               <a href="my_answer.php?sid=<?php echo $now_uid ?>">
-                <img src="./img/student/krislu.jpg" class="ui-li-icon">
+                
                 我的回答
                 <span class="ui-li-count"><?php echo $my_answer; ?></span>
               </a>
             </li>
             <li>
               <a >
-                <img src="./img/student/krislu.jpg" class="ui-li-icon">
+               
                 我收到的赞
                 <span class="ui-li-count"><?php echo $user_info['stu_get_good']; ?></span>
               </a>
@@ -113,21 +113,21 @@
           <ul data-role="listview" data-inset="true">
           <li>
             <a href="my_problem.php">
-                <img src="./img/student/krislu.jpg" class="ui-li-icon">
+                
                 TA的问题
                 <span class="ui-li-count"><?php echo $my_problem; ?></span>
             </a>
           </li>
           <li>
             <a href="my_answer.php">
-              <img src="./img/student/krislu.jpg" class="ui-li-icon">
+              
               TA的回答
               <span class="ui-li-count"><?php echo $my_answer; ?></span>
             </a>
           </li>
           <li>
-            <a href="my_get_good.php">
-              <img src="./img/student/krislu.jpg" class="ui-li-icon">
+            <a>
+              <!--<img src="./img/student/krislu.jpg" class="ui-li-icon">-->
               TA收到的赞
               <span class="ui-li-count"><?php echo $user_info['stu_get_good']; ?></span>
             </a>
@@ -164,7 +164,7 @@
          <?php } ?>  
           </li>
           <li>
-            <a data-icon="bars" data-theme="a" id="more_m">消息</a>
+            <a href="my_message.php" data-icon="bars" data-theme="a" id="more_m">消息</a>
           </li>
         </ul>
       </div>

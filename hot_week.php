@@ -144,7 +144,7 @@
 <link rel="stylesheet" href="css/bbslist.css?v=2013013007" type="text/css" />
 <div class="nav_sec">
 	<a class="c96 fl " href="hot_recom.php" title="全部"  style="color:black;font-weight:500">全部</a>
-	<a class="c96 fl c_green navSec_firList" href="hot_week.php" title="一周">一周</a>
+	<!--<a class="c96 fl c_green navSec_firList" href="hot_week.php" title="一周">一周</a>-->
 	<p class="clear"></p>
 </div>
 
@@ -155,8 +155,9 @@
 			<p class="clear">&nbsp</p>
 			<p>最近一周没有更新哦~</p>
 			<p class="clear">&nbsp</p>
-		<?php } ?>
+		<?php }else{ ?>
 		<?php while($row_hot = mysql_fetch_assoc($all_hot_recom)) {?>
+		<?php echo "waht" ?>
 		<table width="100%">
 			<tr>
 				<td style="padding-bottom:0px"  colspan="2" >
@@ -221,6 +222,7 @@
 
 				
 					<?php } ?>
+					<?php } ?>
 
 		
 				<!--列表结束-->
@@ -267,7 +269,7 @@
          <?php } ?> 
            </li>
           <li>
-            <a data-icon="bars" data-theme="a" id="more_m">消息</a>
+            <a  href="my_message.php" data-icon="bars" data-theme="a" id="more_m">消息</a>
           </li>
         </ul>
       </div>

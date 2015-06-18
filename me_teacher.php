@@ -106,7 +106,7 @@
          <?php } ?>
            </li>
           <li>
-            <a data-icon="bars" data-theme="a" id="more_m">消息</a>
+            <a href="my_message.php" data-icon="bars" data-theme="a" id="more_m">消息</a>
           </li>
         </ul>
       </div>

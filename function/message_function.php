@@ -40,7 +40,7 @@ function get_my_message($uid,$role){
 
   global $tankdb;
 
-  $selMes="SELECT * FROM gt_message WHERE mes_to=$uid AND mes_to_role=$role";
+  $selMes="SELECT * FROM gt_message WHERE mes_to=$uid AND mes_to_role=$role ORDER BY mes_read,mes_time";
   $MesRS = mysql_query($selMes, $tankdb) or die(mysql_error());
   return $MesRS;
 }

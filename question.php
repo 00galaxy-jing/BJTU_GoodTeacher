@@ -56,7 +56,7 @@
           </div>
           <div class="ui-grid-a" style="height:60px">
             <div class="ui-block-a" style="height:100%">
-              <input id="check" name="check" type="checkbox">
+              <input id="check" name="check" type="checkbox" value="0">
               <label for="check">匿名</label>
             </div>
             <div class="ui-block-b" style="height:100%">
