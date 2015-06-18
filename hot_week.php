@@ -39,7 +39,7 @@
 				});
 			}
 
-			setInterval("get_data()",3000);//1秒一次执行
+			setTimeout("get_data()",3000);//3秒一次执行
 		</script> 
    		<div data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
 	      <h3>交大好老师</h3>
@@ -151,6 +151,11 @@
 	<div id="main">
 	<div class="bbsdata_list">
 		<!--列表开始-->
+		<?php if(!mysql_fetch_assoc($all_hot_recom)){ ?>
+			<p class="clear">&nbsp</p>
+			<p>最近一周没有更新哦~</p>
+			<p class="clear">&nbsp</p>
+		<?php } ?>
 		<?php while($row_hot = mysql_fetch_assoc($all_hot_recom)) {?>
 		<table width="100%">
 			<tr>
@@ -256,7 +261,7 @@
          <?php } ?> 
            </li>
           <li>
-            <a data-icon="bars" data-theme="a" id="more_m">更多</a>
+            <a data-icon="bars" data-theme="a" id="more_m">消息</a>
           </li>
         </ul>
       </div>

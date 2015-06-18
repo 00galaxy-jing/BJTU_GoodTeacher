@@ -39,7 +39,7 @@
 				});
 			}
 
-			setInterval("get_data()",3000);//1秒一次执行
+			setTimeout("get_data()",3000);//1秒一次执行
 		</script> 
 	<script type="text/javascript">
 		function add_int(gid,uid)
@@ -80,7 +80,7 @@
 				$problem_infoRS = get_pro_info($now_groupid);
 			?> 
 	<div data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
-	      <button type="button" onClick="javascript:history.go(-1);">返回</button>
+	      <button type="button" onClick="javascript:history.go(-1);" style="  height: 30px;">返回</button>
 	      <h3>交大好老师</h3>
     </div>
 
@@ -102,7 +102,7 @@
 								</dt>
 								<dd class="bbsdata_info">
 									<p style="font-size:120%"><?php echo $group_info['group_description']; ?></p>
-									<p><span >老师：<?php echo $group_info['group_tnum']; ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color:rgb(82, 179, 202);">查看所有老师</span></p>				
+									<!--<p><span >老师：<?php echo $group_info['group_tnum']; ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp<span style="color:rgb(82, 179, 202);">查看所有老师</span></p>		-->		
 									<p>
 									<span id="have_int">感兴趣：<?php echo get_group_snum($now_groupid); ?></span>&nbsp&nbsp&nbsp&nbsp&nbsp
 									<?php if($now_role==2){ ?>
@@ -150,7 +150,7 @@
 				     ?>
 						<tr>
 							<td style="width:50px;height:100%;padding-top:0px;padding-bottom:3px;vertical-align:top;"  > 
-								<img src="<?php echo $answer_info['tea_pic']; ?>" width="50px" >
+								<a href="me_teacher.php?tid=<?php echo $answer_info['tea_id']; ?> "><img src="<?php echo $answer_info['tea_pic']; ?>" width="50px" ></a>
 							</td>
 							<td  style="height:100%;padding-top:0px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
 								<dd>

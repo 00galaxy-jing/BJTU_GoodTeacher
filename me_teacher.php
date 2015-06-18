@@ -43,7 +43,7 @@
         });
       }
 
-      setInterval("get_data()",3000);//1秒一次执行
+      setTimeout("get_data()",3000);//1秒一次执行
     </script> 
   <!-- Page: me  -->
   <div id="me" data-role="page">

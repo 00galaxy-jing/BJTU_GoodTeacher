@@ -48,7 +48,7 @@
         });
       }
 
-      setInterval("get_data()",3000);//1秒一次执行
+      setTimeout("get_data()",3000);//1秒一次执行
     </script> 
   <!-- Page: me  -->
   <div id="me" data-role="page">
@@ -100,7 +100,7 @@
               </a>
             </li>
             <li>
-              <a href="my_get_good.php">
+              <a >
                 <img src="./img/student/krislu.jpg" class="ui-li-icon">
                 我收到的赞
                 <span class="ui-li-count"><?php echo $user_info['stu_get_good']; ?></span>
@@ -158,7 +158,7 @@
          <?php } ?>  
           </li>
           <li>
-            <a data-icon="bars" data-theme="a" id="more_m">更多</a>
+            <a data-icon="bars" data-theme="a" id="more_m">消息</a>
           </li>
         </ul>
       </div>

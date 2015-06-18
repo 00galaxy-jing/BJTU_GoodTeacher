@@ -70,7 +70,7 @@
 				});
 			}
 
-			setInterval("get_data()",3000);//1秒一次执行
+			setTimeout("get_data()",3000);//1秒一次执行
 		</script> 
 
 	<script type="text/javascript">
@@ -185,7 +185,8 @@
 							</tr>
 							<tr>
 								<td style="width:60px;padding-top:0px;padding-bottom:3px;vertical-align:top;"  > 
-									<img src="<?php echo $answer_info['tea_pic']; ?>" width="100%" >
+									<a href="me_teacher.php?tid=<?php echo $answer_info['tea_id']; ?> "><img src="<?php echo $answer_info['tea_pic']; ?>" width="100%" >
+									</a>
 								</td>
 								<td  style="height:100%;padding-top:0px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
 									<dd>
@@ -223,7 +224,8 @@
 								<?php while($row_pro = mysql_fetch_assoc($other_tea_answerRS)) {?>
 								<tr>
 									<td style="width:60px;padding-top:0px;padding-bottom:3px;vertical-align:top;"  > 
-										<img src="<?php echo $row_pro['tea_pic']; ?>" width="100%" >
+										<a href="me_teacher.php?tid=<?php echo $row_pro['tea_id']; ?> "><img src="<?php echo $row_pro['tea_pic']; ?>" width="100%" >
+										</a>
 									</td>
 									<td  style="height:100%;padding-top:0px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
 										<dd>
@@ -268,7 +270,8 @@
 								<?php while($row_answer = mysql_fetch_assoc($student_answerRS)) {?>
 								<tr>
 									<td style="width:60px;padding-top:0px;padding-bottom:3px;vertical-align:top;"  > 
-										<img src="<?php echo $row_answer['stu_pic']; ?>" width="100%" >
+										<a href="me_student.php?sid=<?php echo $row_answer['stu_id']; ?> "><img src="<?php echo $row_answer['stu_pic']; ?>" width="100%" >
+										</a>
 									</td>
 									<td  style="height:100%;padding-top:0px;padding-bottom:3px;font-size:13px;color:#898989;text-align:left;vertical-align:top">
 										<dd>
@@ -330,7 +333,7 @@
          <?php } ?>
           </li>
           <li>
-            <a data-icon="bars" data-theme="a" id="more_m">更多</a>
+            <a data-icon="bars" data-theme="a" id="more_m">消息</a>
           </li>
         </ul>
       </div>

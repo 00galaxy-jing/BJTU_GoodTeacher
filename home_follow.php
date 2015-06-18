@@ -39,7 +39,7 @@
 				});
 			}
 
-			setInterval("get_data()",3000);//1秒一次执行
+			setTimeout("get_data()",3000);//1秒一次执行
 		</script> 
 	<div data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
 	      <h3>交大好老师</h3>
@@ -165,7 +165,8 @@
 						</dd>
 					</td>
 					<td style="width:50px;height:100%;padding-top:8px;padding-bottom:3px;vertical-align:top;"  > 
-						<img src="<?php echo $row_follow['tea_pic']; ?>" width="50px" >
+						<a href="me_teacher.php?tid=<?php echo $row_follow['tea_id']; ?> "><img src="<?php echo $row_follow['tea_pic']; ?>" width="50px" >
+					    </a>
 					</td>	
 				</tr>
 			</table>	
@@ -213,7 +214,7 @@
          <?php } ?>
           </li>
           <li>
-            <a data-icon="bars" data-theme="a" id="more_m">更多</a>
+            <a data-icon="bars" data-theme="a" id="more_m">消息</a>
           </li>
         </ul>
       </div>

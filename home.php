@@ -27,12 +27,7 @@
 </head>
 
 <body>	
-	
-		<div data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
-	      <h3>交大好老师</h3>
-    	</div>
-        <div id="active_br"></div>  
-        <script type="text/javascript">
+	<script type="text/javascript">
 			function get_data()
 			{
 				$.ajax({
@@ -43,8 +38,13 @@
 				});
 			}
 
-			setInterval("get_data()",3000);//1秒一次执行
-		</script>      
+			setTimeout("get_data()",3000);//1秒一次执行
+		</script>     
+		<div data-role="header" data-position="fixed" data-fullscreen="false" class="header" id="iheader" data-theme="a">
+	      <h3>交大好老师</h3>
+    	</div>
+        <div id="active_br"></div>  
+         
 
         <style>
 
